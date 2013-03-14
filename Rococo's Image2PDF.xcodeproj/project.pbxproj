@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27CD18B716E72A29006B6DCF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD18B616E72A29006B6DCF /* UIKit.framework */; };
+		27CD18B916E72A29006B6DCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD18B816E72A29006B6DCF /* Foundation.framework */; };
+		27CD18BB16E72A29006B6DCF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD18BA16E72A29006B6DCF /* CoreGraphics.framework */; };
+		27CD18C116E72A29006B6DCF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27CD18BF16E72A29006B6DCF /* InfoPlist.strings */; };
+		27CD18C316E72A29006B6DCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18C216E72A29006B6DCF /* main.m */; };
+		27CD18C716E72A29006B6DCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18C616E72A29006B6DCF /* AppDelegate.m */; };
+		27CD18C916E72A29006B6DCF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CD18C816E72A29006B6DCF /* Default.png */; };
+		27CD18CB16E72A29006B6DCF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CD18CA16E72A29006B6DCF /* Default@2x.png */; };
+		27CD18CD16E72A29006B6DCF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CD18CC16E72A29006B6DCF /* Default-568h@2x.png */; };
+		27CD18D016E72A29006B6DCF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27CD18CE16E72A29006B6DCF /* MainStoryboard.storyboard */; };
+		27CD18D316E72A29006B6DCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18D216E72A29006B6DCF /* ViewController.m */; };
+		27CD18DC16E72AA7006B6DCF /* WQPDFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18DB16E72AA7006B6DCF /* WQPDFManager.m */; };
+		27CD18F216E7355A006B6DCF /* QBAssetCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18E116E7355A006B6DCF /* QBAssetCollectionViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18F316E7355A006B6DCF /* QBImagePickerAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18E416E7355A006B6DCF /* QBImagePickerAssetCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18F416E7355A006B6DCF /* QBImagePickerAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18E716E7355A006B6DCF /* QBImagePickerAssetView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18F516E7355A006B6DCF /* QBImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27CD18E916E7355A006B6DCF /* QBImagePickerController.bundle */; };
+		27CD18F616E7355A006B6DCF /* QBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18EB16E7355A006B6DCF /* QBImagePickerController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18F716E7355A006B6DCF /* QBImagePickerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18ED16E7355A006B6DCF /* QBImagePickerFooterView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18F816E7355A006B6DCF /* QBImagePickerGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18EF16E7355A006B6DCF /* QBImagePickerGroupCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18F916E7355A006B6DCF /* QBImagePickerVideoInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD18F116E7355A006B6DCF /* QBImagePickerVideoInfoView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		27CD18FA16E73604006B6DCF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD18DD16E73143006B6DCF /* AssetsLibrary.framework */; };
+		27CD18FD16E73621006B6DCF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD18FB16E73610006B6DCF /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		27CD18B316E72A29006B6DCF /* Rococo's Image2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rococo's Image2PDF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27CD18B616E72A29006B6DCF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		27CD18B816E72A29006B6DCF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		27CD18BA16E72A29006B6DCF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		27CD18BE16E72A29006B6DCF /* Rococo's Image2PDF-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rococo's Image2PDF-Info.plist"; sourceTree = "<group>"; };
+		27CD18C016E72A29006B6DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27CD18C216E72A29006B6DCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		27CD18C416E72A29006B6DCF /* Rococo's Image2PDF-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rococo's Image2PDF-Prefix.pch"; sourceTree = "<group>"; };
+		27CD18C516E72A29006B6DCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		27CD18C616E72A29006B6DCF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		27CD18C816E72A29006B6DCF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		27CD18CA16E72A29006B6DCF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		27CD18CC16E72A29006B6DCF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		27CD18CF16E72A29006B6DCF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		27CD18D116E72A29006B6DCF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		27CD18D216E72A29006B6DCF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		27CD18DA16E72AA7006B6DCF /* WQPDFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQPDFManager.h; sourceTree = "<group>"; };
+		27CD18DB16E72AA7006B6DCF /* WQPDFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQPDFManager.m; sourceTree = "<group>"; };
+		27CD18DD16E73143006B6DCF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		27CD18E016E7355A006B6DCF /* QBAssetCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCollectionViewController.h; sourceTree = "<group>"; };
+		27CD18E116E7355A006B6DCF /* QBAssetCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetCollectionViewController.m; sourceTree = "<group>"; };
+		27CD18E216E7355A006B6DCF /* QBAssetCollectionViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCollectionViewControllerDelegate.h; sourceTree = "<group>"; };
+		27CD18E316E7355A006B6DCF /* QBImagePickerAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerAssetCell.h; sourceTree = "<group>"; };
+		27CD18E416E7355A006B6DCF /* QBImagePickerAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerAssetCell.m; sourceTree = "<group>"; };
+		27CD18E516E7355A006B6DCF /* QBImagePickerAssetCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerAssetCellDelegate.h; sourceTree = "<group>"; };
+		27CD18E616E7355A006B6DCF /* QBImagePickerAssetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerAssetView.h; sourceTree = "<group>"; };
+		27CD18E716E7355A006B6DCF /* QBImagePickerAssetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerAssetView.m; sourceTree = "<group>"; };
+		27CD18E816E7355A006B6DCF /* QBImagePickerAssetViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerAssetViewDelegate.h; sourceTree = "<group>"; };
+		27CD18E916E7355A006B6DCF /* QBImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QBImagePickerController.bundle; sourceTree = "<group>"; };
+		27CD18EA16E7355A006B6DCF /* QBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerController.h; sourceTree = "<group>"; };
+		27CD18EB16E7355A006B6DCF /* QBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerController.m; sourceTree = "<group>"; };
+		27CD18EC16E7355A006B6DCF /* QBImagePickerFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerFooterView.h; sourceTree = "<group>"; };
+		27CD18ED16E7355A006B6DCF /* QBImagePickerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerFooterView.m; sourceTree = "<group>"; };
+		27CD18EE16E7355A006B6DCF /* QBImagePickerGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerGroupCell.h; sourceTree = "<group>"; };
+		27CD18EF16E7355A006B6DCF /* QBImagePickerGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerGroupCell.m; sourceTree = "<group>"; };
+		27CD18F016E7355A006B6DCF /* QBImagePickerVideoInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerVideoInfoView.h; sourceTree = "<group>"; };
+		27CD18F116E7355A006B6DCF /* QBImagePickerVideoInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerVideoInfoView.m; sourceTree = "<group>"; };
+		27CD18FB16E73610006B6DCF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27CD18B016E72A29006B6DCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27CD18FD16E73621006B6DCF /* QuartzCore.framework in Frameworks */,
+				27CD18FA16E73604006B6DCF /* AssetsLibrary.framework in Frameworks */,
+				27CD18B716E72A29006B6DCF /* UIKit.framework in Frameworks */,
+				27CD18B916E72A29006B6DCF /* Foundation.framework in Frameworks */,
+				27CD18BB16E72A29006B6DCF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27CD18AA16E72A29006B6DCF = {
+			isa = PBXGroup;
+			children = (
+				27CD18BC16E72A29006B6DCF /* Rococo's Image2PDF */,
+				27CD18B516E72A29006B6DCF /* Frameworks */,
+				27CD18B416E72A29006B6DCF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27CD18B416E72A29006B6DCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27CD18B316E72A29006B6DCF /* Rococo's Image2PDF.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27CD18B516E72A29006B6DCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27CD18FB16E73610006B6DCF /* QuartzCore.framework */,
+				27CD18DD16E73143006B6DCF /* AssetsLibrary.framework */,
+				27CD18B616E72A29006B6DCF /* UIKit.framework */,
+				27CD18B816E72A29006B6DCF /* Foundation.framework */,
+				27CD18BA16E72A29006B6DCF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27CD18BC16E72A29006B6DCF /* Rococo's Image2PDF */ = {
+			isa = PBXGroup;
+			children = (
+				27CD18DF16E7355A006B6DCF /* Classes */,
+				27CD18D116E72A29006B6DCF /* ViewController.h */,
+				27CD18D216E72A29006B6DCF /* ViewController.m */,
+				27CD18CE16E72A29006B6DCF /* MainStoryboard.storyboard */,
+				27CD18DA16E72AA7006B6DCF /* WQPDFManager.h */,
+				27CD18DB16E72AA7006B6DCF /* WQPDFManager.m */,
+				27CD18D916E72A63006B6DCF /* APP */,
+				27CD18BD16E72A29006B6DCF /* Supporting Files */,
+			);
+			path = "Rococo's Image2PDF";
+			sourceTree = "<group>";
+		};
+		27CD18BD16E72A29006B6DCF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27CD18BE16E72A29006B6DCF /* Rococo's Image2PDF-Info.plist */,
+				27CD18BF16E72A29006B6DCF /* InfoPlist.strings */,
+				27CD18C216E72A29006B6DCF /* main.m */,
+				27CD18C416E72A29006B6DCF /* Rococo's Image2PDF-Prefix.pch */,
+				27CD18C816E72A29006B6DCF /* Default.png */,
+				27CD18CA16E72A29006B6DCF /* Default@2x.png */,
+				27CD18CC16E72A29006B6DCF /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27CD18D916E72A63006B6DCF /* APP */ = {
+			isa = PBXGroup;
+			children = (
+				27CD18C516E72A29006B6DCF /* AppDelegate.h */,
+				27CD18C616E72A29006B6DCF /* AppDelegate.m */,
+			);
+			name = APP;
+			sourceTree = "<group>";
+		};
+		27CD18DF16E7355A006B6DCF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				27CD18E016E7355A006B6DCF /* QBAssetCollectionViewController.h */,
+				27CD18E116E7355A006B6DCF /* QBAssetCollectionViewController.m */,
+				27CD18E216E7355A006B6DCF /* QBAssetCollectionViewControllerDelegate.h */,
+				27CD18E316E7355A006B6DCF /* QBImagePickerAssetCell.h */,
+				27CD18E416E7355A006B6DCF /* QBImagePickerAssetCell.m */,
+				27CD18E516E7355A006B6DCF /* QBImagePickerAssetCellDelegate.h */,
+				27CD18E616E7355A006B6DCF /* QBImagePickerAssetView.h */,
+				27CD18E716E7355A006B6DCF /* QBImagePickerAssetView.m */,
+				27CD18E816E7355A006B6DCF /* QBImagePickerAssetViewDelegate.h */,
+				27CD18E916E7355A006B6DCF /* QBImagePickerController.bundle */,
+				27CD18EA16E7355A006B6DCF /* QBImagePickerController.h */,
+				27CD18EB16E7355A006B6DCF /* QBImagePickerController.m */,
+				27CD18EC16E7355A006B6DCF /* QBImagePickerFooterView.h */,
+				27CD18ED16E7355A006B6DCF /* QBImagePickerFooterView.m */,
+				27CD18EE16E7355A006B6DCF /* QBImagePickerGroupCell.h */,
+				27CD18EF16E7355A006B6DCF /* QBImagePickerGroupCell.m */,
+				27CD18F016E7355A006B6DCF /* QBImagePickerVideoInfoView.h */,
+				27CD18F116E7355A006B6DCF /* QBImagePickerVideoInfoView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27CD18B216E72A29006B6DCF /* Rococo's Image2PDF */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27CD18D616E72A29006B6DCF /* Build configuration list for PBXNativeTarget "Rococo's Image2PDF" */;
+			buildPhases = (
+				27CD18AF16E72A29006B6DCF /* Sources */,
+				27CD18B016E72A29006B6DCF /* Frameworks */,
+				27CD18B116E72A29006B6DCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rococo's Image2PDF";
+			productName = "Rococo's Image2PDF";
+			productReference = 27CD18B316E72A29006B6DCF /* Rococo's Image2PDF.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27CD18AB16E72A29006B6DCF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Nonomori;
+			};
+			buildConfigurationList = 27CD18AE16E72A29006B6DCF /* Build configuration list for PBXProject "Rococo's Image2PDF" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 27CD18AA16E72A29006B6DCF;
+			productRefGroup = 27CD18B416E72A29006B6DCF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27CD18B216E72A29006B6DCF /* Rococo's Image2PDF */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27CD18B116E72A29006B6DCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27CD18C116E72A29006B6DCF /* InfoPlist.strings in Resources */,
+				27CD18C916E72A29006B6DCF /* Default.png in Resources */,
+				27CD18CB16E72A29006B6DCF /* Default@2x.png in Resources */,
+				27CD18CD16E72A29006B6DCF /* Default-568h@2x.png in Resources */,
+				27CD18D016E72A29006B6DCF /* MainStoryboard.storyboard in Resources */,
+				27CD18F516E7355A006B6DCF /* QBImagePickerController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27CD18AF16E72A29006B6DCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27CD18C316E72A29006B6DCF /* main.m in Sources */,
+				27CD18C716E72A29006B6DCF /* AppDelegate.m in Sources */,
+				27CD18D316E72A29006B6DCF /* ViewController.m in Sources */,
+				27CD18DC16E72AA7006B6DCF /* WQPDFManager.m in Sources */,
+				27CD18F216E7355A006B6DCF /* QBAssetCollectionViewController.m in Sources */,
+				27CD18F316E7355A006B6DCF /* QBImagePickerAssetCell.m in Sources */,
+				27CD18F416E7355A006B6DCF /* QBImagePickerAssetView.m in Sources */,
+				27CD18F616E7355A006B6DCF /* QBImagePickerController.m in Sources */,
+				27CD18F716E7355A006B6DCF /* QBImagePickerFooterView.m in Sources */,
+				27CD18F816E7355A006B6DCF /* QBImagePickerGroupCell.m in Sources */,
+				27CD18F916E7355A006B6DCF /* QBImagePickerVideoInfoView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		27CD18BF16E72A29006B6DCF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27CD18C016E72A29006B6DCF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27CD18CE16E72A29006B6DCF /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27CD18CF16E72A29006B6DCF /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27CD18D416E72A29006B6DCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		27CD18D516E72A29006B6DCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27CD18D716E72A29006B6DCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rococo's Image2PDF/Rococo's Image2PDF-Prefix.pch";
+				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		27CD18D816E72A29006B6DCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rococo's Image2PDF/Rococo's Image2PDF-Prefix.pch";
+				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27CD18AE16E72A29006B6DCF /* Build configuration list for PBXProject "Rococo's Image2PDF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27CD18D416E72A29006B6DCF /* Debug */,
+				27CD18D516E72A29006B6DCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27CD18D616E72A29006B6DCF /* Build configuration list for PBXNativeTarget "Rococo's Image2PDF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27CD18D716E72A29006B6DCF /* Debug */,
+				27CD18D816E72A29006B6DCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27CD18AB16E72A29006B6DCF /* Project object */;
+}
