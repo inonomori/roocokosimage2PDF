@@ -20,10 +20,10 @@
  *	@param 	destFileName 	NSString型 生成的PDF文件名
  *	@param 	pw              NSString型 要设定的密码
  */
-+ (void)WQCreatePDFFileWithSrc:(NSData *)imgData
-                    toDestFile:(NSString *)destFileName
-                  withPassword:(NSString *)pw;
 
++ (void)WQCreatePDFFileWithSrc2:(NSArray *)mediaInfoArray
+                     toDestFile:(NSString *)destFileName
+                   withPassword:(NSString *)pw;
 
 /**
  *	@brief	抛出pdf文件存放地址
@@ -32,8 +32,7 @@
  *
  *	@return	NSString型 地址
  */
-+ (NSString *)pdfDestPath:(NSString *)filename;
-+ (void)WQCreatePDFFileWithSrc2:(NSArray *)mediaInfoArray
-toDestFile:(NSString *)destFileName
-                   withPassword:(NSString *)pw;
++(NSString *)pdfDestPathDocuments:(NSString *)filename;
++(NSString *)pdfDestPathTmp:(NSString *)filename;
+
 @end

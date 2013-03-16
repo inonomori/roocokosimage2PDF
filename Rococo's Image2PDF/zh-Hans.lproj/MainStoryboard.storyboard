@@ -58,29 +58,29 @@
                                 <color key="textColor" red="0.43049422554347827" green="0.43049422554347827" blue="0.43049422554347827" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ROOCOKO 2013" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNu-kr-E1V">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ROOCOKO 2013" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMg-zj-0QN">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Bfq-Ry-cXu"/>
-                                    <constraint firstAttribute="width" constant="110" id="wv5-py-EbR"/>
+                                    <constraint firstAttribute="height" constant="21" id="4MJ-ZA-RK2"/>
+                                    <constraint firstAttribute="width" constant="110" id="c4C-wc-qQc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                <color key="textColor" red="0.67939028532608692" green="0.67939028532608692" blue="0.67939028532608692" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.67939028530000001" green="0.67939028530000001" blue="0.67939028530000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="QMg-zj-0QN" firstAttribute="centerX" secondItem="R5b-Lm-MWS" secondAttribute="centerX" type="default" id="4B9-sf-lAe"/>
                             <constraint firstItem="TZa-zM-RFU" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="7KE-8S-mGD"/>
                             <constraint firstItem="8jX-tF-pUB" firstAttribute="top" secondItem="3" secondAttribute="top" constant="98" id="8yV-74-BRE"/>
                             <constraint firstItem="R5b-Lm-MWS" firstAttribute="top" secondItem="3" secondAttribute="top" constant="235" id="9OD-gS-A4C"/>
-                            <constraint firstAttribute="bottom" secondItem="XNk-vU-Ihu" secondAttribute="bottom" constant="7" id="En1-P9-sSj"/>
+                            <constraint firstItem="QMg-zj-0QN" firstAttribute="bottom" secondItem="XNk-vU-Ihu" secondAttribute="bottom" type="default" id="B4q-uI-QOG"/>
                             <constraint firstItem="R5b-Lm-MWS" firstAttribute="centerX" secondItem="TZa-zM-RFU" secondAttribute="centerX" type="default" id="J6y-9r-ETp"/>
                             <constraint firstItem="TZa-zM-RFU" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="MJS-Fc-BGZ"/>
+                            <constraint firstAttribute="bottom" secondItem="QMg-zj-0QN" secondAttribute="bottom" constant="6" id="Oh2-ZH-eog"/>
                             <constraint firstAttribute="trailing" secondItem="XNk-vU-Ihu" secondAttribute="trailing" constant="11" id="T7P-VN-hhz"/>
                             <constraint firstItem="8jX-tF-pUB" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="127" id="TSk-aH-if2"/>
-                            <constraint firstAttribute="bottom" secondItem="lNu-kr-E1V" secondAttribute="bottom" constant="6" id="eZy-96-R36"/>
                             <constraint firstItem="TZa-zM-RFU" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="gXd-pR-8iV"/>
-                            <constraint firstItem="lNu-kr-E1V" firstAttribute="centerX" secondItem="R5b-Lm-MWS" secondAttribute="centerX" type="default" id="w5E-If-0qr"/>
                         </constraints>
                     </view>
                     <connections>

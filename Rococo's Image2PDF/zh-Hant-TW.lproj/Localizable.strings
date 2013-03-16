@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Rococo's Image2PDF
+
+  Created by Zhefu Wang on 13-3-16.
+  Copyright (c) 2013年 Nonomori. All rights reserved.
+*/
+"emailActionSheetTitle" = "是否使用電郵發送PDF文檔？";
+"YES" = "是";
+"NO" = "否";
+"productName" = "Roocoko 的玩具";
+"cannotUseEmail" = "電郵不可用";
+"mailComponentViewSubject" = "通過電郵傳送";

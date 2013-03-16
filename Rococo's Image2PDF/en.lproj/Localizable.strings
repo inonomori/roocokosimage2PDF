@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Rococo's Image2PDF
+
+  Created by Zhefu Wang on 13-3-16.
+  Copyright (c) 2013年 Nonomori. All rights reserved.
+*/
+"emailActionSheetTitle" = "Would you like to send the generated PDF file by Email?";
+"YES" = "YES";
+"NO" = "NO";
+"productName" = "Roocoko's image2PDF Converter";
+"cannotUseEmail" = "Email unavailable";
+"mailComponentViewSubject" = "Send via Email";

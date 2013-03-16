@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "QBImagePickerController.h"
 #import "WQPDFManager.h"
 
 
 
 
-@interface ViewController : UIViewController <QBImagePickerControllerDelegate>
+@interface ViewController : UIViewController <QBImagePickerControllerDelegate,UIActionSheetDelegate,MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *selectPicButton;
 
 @end

@@ -1,0 +1,13 @@
+/* 
+  File.strings
+  Rococo's Image2PDF
+
+  Created by Zhefu Wang on 13-3-16.
+  Copyright (c) 2013年 Nonomori. All rights reserved.
+*/
+"emailActionSheetTitle" = "是否直接使用邮件发送生成的PDF文件？";
+"YES" = "是";
+"NO" = "否";
+"productName" = "Roocoko 的转换工具";
+"cannotUseEmail" = "电子邮件不可用";
+"mailComponentViewSubject" = "通过电子邮件传送";

@@ -41,18 +41,22 @@
 - (void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info
 {
     NSArray *mediaInfoArray = (NSArray *)info;
-    
-    //for (NSDictionary *iter in mediaInfoArray){
-    
-       // UIImage *chosenImage = [iter objectForKey:UIImagePickerControllerOriginalImage];
-       // NSData *data = UIImageJPEGRepresentation(chosenImage,1.0);//(chosenImage);
         
-        [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:@"hallo.pdf" withPassword:nil];
-   // }
+    [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:@"roocoko.pdf" withPassword:nil];
     
     NSLog(@"Selected %d photos", mediaInfoArray.count);
     
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:NSLocalizedString(@"emailActionSheetTitle", nil)
+                                  delegate:self
+                                  cancelButtonTitle:NSLocalizedString(@"NO", nil)
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:NSLocalizedString(@"YES", nil), nil];
+    
+    [actionSheet showInView:self.view];  
 }
 
 - (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
@@ -63,4 +67,71 @@
 }
 
 
+#pragma mark actionSheetDelegate
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet
+didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    
+    if (buttonIndex == 0) //yes button
+    {
+        if ([MFMailComposeViewController canSendMail])
+        {
+            MFMailComposeViewController* mcvc = [[MFMailComposeViewController alloc] init];
+            mcvc.mailComposeDelegate = self;
+            
+            [mcvc setSubject:NSLocalizedString(@"mailComponentViewSubject", nil)];
+            
+            //add attachment
+            [mcvc addAttachmentData:[NSData dataWithContentsOfFile:[WQPDFManager pdfDestPathTmp:@"roocoko.pdf"]] mimeType:@"application/pdf" fileName:@"attachment.pdf"];
+            
+            //正文
+            NSString *emailBody = NSLocalizedString(@"productName",nil);
+            [mcvc setMessageBody:emailBody isHTML:YES];
+            
+            mcvc.modalPresentationStyle = UIModalPresentationFormSheet;
+            [self presentViewController:mcvc animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil
+                                                           message:NSLocalizedString(@"cannotUseEmail",nil)
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else
+    {
+    }
+}
+
+#pragma mark MailComposeDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    //NSString *msg = @"";
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+           // msg = @"邮件发送取消";
+            break;
+        case MFMailComposeResultSaved:
+            //msg = @"邮件保存成功";
+            break;
+        case MFMailComposeResultSent:
+           // msg = @"邮件发送成功";
+            break;
+        case MFMailComposeResultFailed:
+          //  msg = @"邮件发送失败";
+            break;
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
