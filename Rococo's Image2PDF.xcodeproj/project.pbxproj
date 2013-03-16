@@ -81,6 +81,7 @@
 		6815F40D16F4A5C000F3C242 /* ButtonSelectPic_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ButtonSelectPic_en@2x.png"; path = "Resources/UI/ButtonSelectPic_en@2x.png"; sourceTree = "<group>"; };
 		6815F41016F4A5F400F3C242 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6815F41116F4A6C800F3C242 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		6815F41216F4B91A00F3C242 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		6876962E16F489B100E5DB62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6876963116F48C1000E5DB62 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6876963316F491B300E5DB62 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -326,6 +327,7 @@
 			children = (
 				6815F41016F4A5F400F3C242 /* en */,
 				6815F41116F4A6C800F3C242 /* zh-Hans */,
+				6815F41216F4B91A00F3C242 /* zh-Hant-TW */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";

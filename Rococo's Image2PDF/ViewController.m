@@ -10,16 +10,20 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) NSString* fileName;
+
 @end
 
 @implementation ViewController
 
 @synthesize selectPicButton = _selectPicButton;
+@synthesize fileName = _fileName;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.fileName = @"roocoko.pdf";
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +46,7 @@
 {
     NSArray *mediaInfoArray = (NSArray *)info;
         
-    [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:@"roocoko.pdf" withPassword:nil];
+    [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:self.fileName withPassword:nil];
     
     NSLog(@"Selected %d photos", mediaInfoArray.count);
     
@@ -84,7 +88,7 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex
             [mcvc setSubject:NSLocalizedString(@"mailComponentViewSubject", nil)];
             
             //add attachment
-            [mcvc addAttachmentData:[NSData dataWithContentsOfFile:[WQPDFManager pdfDestPathTmp:@"roocoko.pdf"]] mimeType:@"application/pdf" fileName:@"attachment.pdf"];
+            [mcvc addAttachmentData:[NSData dataWithContentsOfFile:[WQPDFManager pdfDestPathTmp:self.fileName]] mimeType:@"application/pdf" fileName:@"attachment.pdf"];
             
             //正文
             NSString *emailBody = NSLocalizedString(@"productName",nil);
@@ -131,7 +135,8 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex
         default:
             break;
     }
-    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:[WQPDFManager pdfDestPathTmp:self.fileName] error:NULL];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
