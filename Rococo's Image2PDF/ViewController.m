@@ -11,13 +11,13 @@
 @interface ViewController ()
 
 @property (strong, nonatomic) NSString* fileName;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *picSelectionButton;
 
 @end
 
-@implementation ViewController
 
-@synthesize selectPicButton = _selectPicButton;
-@synthesize fileName = _fileName;
+@implementation ViewController
 
 - (void)viewDidLoad
 {
@@ -45,14 +45,13 @@
 - (void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info
 {
     NSArray *mediaInfoArray = (NSArray *)info;
-        
-    [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:self.fileName withPassword:nil];
     
+    [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:self.fileName withPassword:nil];
+
     NSLog(@"Selected %d photos", mediaInfoArray.count);
     
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
-    
+        
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:NSLocalizedString(@"emailActionSheetTitle", nil)
                                   delegate:self
@@ -72,12 +71,9 @@
 
 
 #pragma mark actionSheetDelegate
-
-
 -(void)actionSheet:(UIActionSheet *)actionSheet
 didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    
     if (buttonIndex == 0) //yes button
     {
         if ([MFMailComposeViewController canSendMail])

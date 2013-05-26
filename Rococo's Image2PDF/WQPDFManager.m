@@ -8,6 +8,9 @@
 
 #import "WQPDFManager.h"
 
+#define PAGE_WIDTH 612
+#define PAGE_HEIGHT 792
+
 @implementation WQPDFManager
 
 void WQDrawContent(CGContextRef myContext,
@@ -68,7 +71,7 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
         CFDictionarySetValue(myDictionary, kCGPDFContextOwnerPassword, password);
     }
    
-    CGRect pageRect = CGRectMake(0, 0, 612, 792);
+    CGRect pageRect = CGRectMake(0, 0, PAGE_WIDTH, PAGE_HEIGHT);
     pdfContext = CGPDFContextCreateWithURL (url, &pageRect, myDictionary);
     CFRelease(myDictionary);
     CFRelease(url);
@@ -84,13 +87,13 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
         
         //resize image heret
         CGFloat imageScale=1;
-        if (chosenImage.size.width > 612)
+        if (chosenImage.size.width > PAGE_WIDTH)
         {
-            imageScale = 612/chosenImage.size.width;
+            imageScale = PAGE_WIDTH/chosenImage.size.width;
         }
-        if (chosenImage.size.height*imageScale > 792)
+        if (chosenImage.size.height*imageScale > PAGE_HEIGHT)
         {
-            imageScale = 792/chosenImage.size.height;
+            imageScale = PAGE_HEIGHT/chosenImage.size.height;
         }
         UIGraphicsBeginImageContext(CGSizeMake(chosenImage.size.width * imageScale, chosenImage.size.height * imageScale));
         [chosenImage drawInRect:CGRectMake(0, 0, chosenImage.size.width * imageScale, chosenImage.size.height * imageScale)];

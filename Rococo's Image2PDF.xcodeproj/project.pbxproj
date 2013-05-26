@@ -34,11 +34,16 @@
 		6815F40E16F4A5C000F3C242 /* ButtonSelectPic_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 6815F40C16F4A5C000F3C242 /* ButtonSelectPic_en.png */; };
 		6815F40F16F4A5C000F3C242 /* ButtonSelectPic_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6815F40D16F4A5C000F3C242 /* ButtonSelectPic_en@2x.png */; };
 		6876962F16F489B100E5DB62 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6876962E16F489B100E5DB62 /* MessageUI.framework */; };
+		68A38F6E1750646700F2C112 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A38F6D1750646700F2C112 /* Default-568h@2x.png */; };
+		68A38F701750650500F2C112 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A38F6F1750650500F2C112 /* Default@2x.png */; };
+		68A38F721750656900F2C112 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A38F711750656900F2C112 /* Default.png */; };
+		68A38F7417506BA900F2C112 /* icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A38F7317506BA900F2C112 /* icon57x57.png */; };
+		68A38F7617506BE800F2C112 /* icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A38F7517506BE800F2C112 /* icon114x114.png */; };
 		68B76FA016F49AA000AF0B8B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B76F9E16F49AA000AF0B8B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		27CD18B316E72A29006B6DCF /* Rococo's Image2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rococo's Image2PDF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27CD18B316E72A29006B6DCF /* RoocokosImage2PDFConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoocokosImage2PDFConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27CD18B616E72A29006B6DCF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		27CD18B816E72A29006B6DCF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27CD18BA16E72A29006B6DCF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +90,11 @@
 		6876962E16F489B100E5DB62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6876963116F48C1000E5DB62 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6876963316F491B300E5DB62 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		68A38F6D1750646700F2C112 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		68A38F6F1750650500F2C112 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		68A38F711750656900F2C112 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		68A38F7317506BA900F2C112 /* icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57.png; sourceTree = "<group>"; };
+		68A38F7517506BE800F2C112 /* icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114.png; sourceTree = "<group>"; };
 		68B76F9F16F49AA000AF0B8B /* en */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +118,11 @@
 		27CD18AA16E72A29006B6DCF = {
 			isa = PBXGroup;
 			children = (
+				68A38F7517506BE800F2C112 /* icon114x114.png */,
+				68A38F7317506BA900F2C112 /* icon57x57.png */,
+				68A38F711750656900F2C112 /* Default.png */,
+				68A38F6F1750650500F2C112 /* Default@2x.png */,
+				68A38F6D1750646700F2C112 /* Default-568h@2x.png */,
 				27CD18BC16E72A29006B6DCF /* Rococo's Image2PDF */,
 				27CD18B516E72A29006B6DCF /* Frameworks */,
 				6876963416F495ED00E5DB62 /* Resources */,
@@ -118,7 +133,7 @@
 		27CD18B416E72A29006B6DCF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27CD18B316E72A29006B6DCF /* Rococo's Image2PDF.app */,
+				27CD18B316E72A29006B6DCF /* RoocokosImage2PDFConverter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,7 +252,7 @@
 			);
 			name = "Rococo's Image2PDF";
 			productName = "Rococo's Image2PDF";
-			productReference = 27CD18B316E72A29006B6DCF /* Rococo's Image2PDF.app */;
+			productReference = 27CD18B316E72A29006B6DCF /* RoocokosImage2PDFConverter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -285,6 +300,11 @@
 				6815F3FB16F49C7600F3C242 /* Localizable.strings in Resources */,
 				6815F40E16F4A5C000F3C242 /* ButtonSelectPic_en.png in Resources */,
 				6815F40F16F4A5C000F3C242 /* ButtonSelectPic_en@2x.png in Resources */,
+				68A38F6E1750646700F2C112 /* Default-568h@2x.png in Resources */,
+				68A38F701750650500F2C112 /* Default@2x.png in Resources */,
+				68A38F721750656900F2C112 /* Default.png in Resources */,
+				68A38F7417506BA900F2C112 /* icon57x57.png in Resources */,
+				68A38F7617506BE800F2C112 /* icon114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +441,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rococo's Image2PDF/Rococo's Image2PDF-Prefix.pch";
 				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RoocokosImage2PDFConverter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -429,10 +449,14 @@
 		27CD18D816E72A29006B6DCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rococo's Image2PDF/Rococo's Image2PDF-Prefix.pch";
 				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RoocokosImage2PDFConverter;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
