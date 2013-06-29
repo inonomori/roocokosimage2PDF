@@ -64,7 +64,8 @@
     self.scrollView.contentSize = CGSizeMake(200 * [self.pageArray count], self.scrollView.frame.size.height);
     self.scrollView.responseInsets = UIEdgeInsetsMake(0, 60, 0, 60);
     NSDictionary *pageSizeDictionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"pageSize"];
-    CGRect rect = CGRectMake(200*([self.pageArray indexOfObject:pageSizeDictionary[@"name"]]+1), 0, 1, 1);
+    NSLog(@"load = %@", pageSizeDictionary);
+    CGRect rect = CGRectMake(200*([self.pageArray indexOfObject:pageSizeDictionary[@"name"]]), 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     [self.scrollView scrollRectToVisible:rect animated:YES];
 }
 
