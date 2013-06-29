@@ -7,12 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "FSPageValueDefinition.h"
+#import "JSONKit.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"pageSize"])
+    {
+        
+        NSData *json = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pageSize" ofType:@"json"]];
+        NSDictionary *allPageDictionary =  [[[JSONDecoder alloc] init] objectWithData:json];
+        
+        NSDictionary *pageSizeDictionary = allPageDictionary[@"PAGESIZE_A4"];
+        [[NSUserDefaults standardUserDefaults] setObject:pageSizeDictionary forKey:@"pageSize"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     return YES;
 }
 							

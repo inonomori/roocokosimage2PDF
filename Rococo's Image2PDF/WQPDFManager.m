@@ -40,7 +40,7 @@ void WQDrawContent(CGContextRef myContext,
 
 
 void MyCreatePDFFile2 (NSArray* mediaInfoArray,
-                      /*CGRect pageRect,*/
+                      CGRect pageRect,
                       const char *filepath,
                       CFStringRef password)
 {
@@ -71,7 +71,7 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
         CFDictionarySetValue(myDictionary, kCGPDFContextOwnerPassword, password);
     }
    
-    CGRect pageRect = CGRectMake(0, 0, PAGE_WIDTH, PAGE_HEIGHT);
+//    CGRect pageRect = CGRectMake(0, 0, PAGE_WIDTH, PAGE_HEIGHT); //TODO:use parameter pageRect
     pdfContext = CGPDFContextCreateWithURL (url, &pageRect, myDictionary);
     CFRelease(myDictionary);
     CFRelease(url);
@@ -87,13 +87,13 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
         
         //resize image heret
         CGFloat imageScale=1;
-        if (chosenImage.size.width > PAGE_WIDTH)
+        if (chosenImage.size.width > pageRect.size.width)
         {
-            imageScale = PAGE_WIDTH/chosenImage.size.width;
+            imageScale = pageRect.size.width/chosenImage.size.width;
         }
-        if (chosenImage.size.height*imageScale > PAGE_HEIGHT)
+        if (chosenImage.size.height*imageScale > pageRect.size.height)
         {
-            imageScale = PAGE_HEIGHT/chosenImage.size.height;
+            imageScale = pageRect.size.height/chosenImage.size.height;
         }
         UIGraphicsBeginImageContext(CGSizeMake(chosenImage.size.width * imageScale, chosenImage.size.height * imageScale));
         [chosenImage drawInRect:CGRectMake(0, 0, chosenImage.size.width * imageScale, chosenImage.size.height * imageScale)];
@@ -125,7 +125,10 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
     NSString *fileFullPath = [self pdfDestPathTmp:destFileName];
     const char *path = [fileFullPath UTF8String];
     CFStringRef password = (__bridge CFStringRef)pw;
-    
-    MyCreatePDFFile2(mediaInfoArray,/*rect,*/ path, password);
+    NSDictionary *pageDicionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"pageSize"];
+    CGFloat width = [pageDicionary[@"width"] floatValue];
+    CGFloat height = [pageDicionary[@"height"] floatValue];
+    CGRect rect = CGRectMake(0, 0, width, height);
+    MyCreatePDFFile2(mediaInfoArray,rect, path, password);
 }
 @end

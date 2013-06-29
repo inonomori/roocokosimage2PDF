@@ -444,10 +444,10 @@
         [self updateDoneButton];
         
         // Update header text
-        if((selected && self.selectedAssets.count == self.assets.count) ||
-           (!selected && self.selectedAssets.count == self.assets.count - 1)) {
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-        }
+//        if((selected && self.selectedAssets.count == self.assets.count) ||
+//           (!selected && self.selectedAssets.count == self.assets.count - 1)) {
+//            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+//        }
     } else {
         [self.delegate assetCollectionViewController:self didFinishPickingAsset:asset];
     }

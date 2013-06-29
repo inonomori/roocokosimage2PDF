@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIButton+FSUIButton.h"
 
 @interface ViewController ()
 
@@ -24,6 +25,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.fileName = @"roocoko.pdf";
+//    [self.picSelectionButton setImage:[UIImage imageNamed:@"ButtonSelectPic_en_actived.png"] forState:UIControlStateHighlighted];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.picSelectionButton.frame.size.width == 1)
+        [FSUIViewAnimation viewAnimationBubblePop:self.picSelectionButton toFrame:CGRectMake([FSToolBox getApplicationFrameSize].width/2-100, [FSToolBox getApplicationFrameSize].height/2-100, 200, 200) delayed:0.3 completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,11 +42,57 @@
 }
 - (IBAction)selectPics:(UIButton *)sender
 {
-    QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsMultipleSelection = YES;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
-    [self presentViewController:navigationController animated:YES completion:NULL];
+    __weak __block ViewController *weakSelf = self;
+    [UIView animateWithDuration:0.05
+                     animations:^{
+                         sender.frame = sender.originalFrame;
+                     }
+                     completion:^(BOOL finished){
+                         if (finished)
+                             [sender touched:^{
+                                 
+                                 QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
+                                 imagePickerController.delegate = weakSelf;
+                                 imagePickerController.allowsMultipleSelection = YES;
+                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+                                 [weakSelf presentViewController:navigationController animated:YES completion:NULL];
+
+                             }];
+                     }];
+
+    
+//    QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
+//    imagePickerController.delegate = self;
+//    imagePickerController.allowsMultipleSelection = YES;
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+//    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+- (IBAction)bubbleButtonTouchDown:(UIButton *)sender
+{
+    sender.originalFrame = sender.frame;
+    [UIView animateWithDuration:0.1
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^
+     {
+         CGRect frame = sender.frame;
+         CGFloat increasedWidth = frame.size.width*0.3;
+         CGFloat increasedHeight = frame.size.height*0.3;
+         frame.origin.x -= increasedWidth;
+         frame.origin.y -= increasedHeight;
+         frame.size.width += increasedWidth*2;
+         frame.size.height += increasedHeight*2;
+         sender.frame = frame;
+     }
+                     completion:nil];
+}
+
+- (IBAction)bubbleButtonTouchCancel:(UIButton *)sender
+{
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        sender.frame = sender.originalFrame;
+    } completion:nil];
 }
 
 #pragma mark - QBImagePickerControllerDelegate
@@ -63,9 +118,7 @@
 }
 
 - (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
-{
-    NSLog(@"Cancelled");
-    
+{    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
