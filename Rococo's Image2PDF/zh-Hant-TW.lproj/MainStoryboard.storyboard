@@ -235,40 +235,6 @@
         <image name="ButtonSelectPic_en.png" width="415" height="415"/>
         <image name="backButtonDark.png" width="44" height="44"/>
     </resources>
-    <classes>
-        <class className="FSNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FSNavigationController.h"/>
-        </class>
-        <class className="FSPagingScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FSPagingScrollView.h"/>
-        </class>
-        <class className="FSSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FSSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonTouched:" candidateClass="UIButton"/>
-                <relationship kind="action" name="okButtonTouchCancel:" candidateClass="UIButton"/>
-                <relationship kind="action" name="okButtonTouchDown:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="FSPagingScrollView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bubbleButtonTouchCancel:" candidateClass="UIButton"/>
-                <relationship kind="action" name="bubbleButtonTouchDown:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectPics:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sendEmailCancelButtonTouched:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sendEmailOKButtonTouched:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="coverView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="dialogView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picSelectionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

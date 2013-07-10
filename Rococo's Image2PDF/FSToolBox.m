@@ -106,7 +106,6 @@
     //[dateformatter setDateFormat:@"YYYY-MM-dd-HH-mm-ss"];
     //NSString *  morelocationString=[dateformatter stringFromDate:senddate];
     
-    //获得系统日期
     NSCalendar  * cal=[NSCalendar  currentCalendar];
     NSUInteger  unitFlags=NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
     NSDateComponents * conponent= [cal components:unitFlags fromDate:senddate];
@@ -120,8 +119,7 @@
     return result;
 }
 
-#pragma mark
-
+#pragma mark - DegugInfo
 + (void)DebugShowAllFonts
 {
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
