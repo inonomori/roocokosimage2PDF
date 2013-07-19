@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIButton+FSUIButton.h"
 #import "FSPdfPreviewViewController.h"
+#import "FSimageOrderChangingViewController.h"
 
 @interface ViewController ()
 
@@ -100,24 +101,41 @@
         FSPdfPreviewViewController *cv = segue.destinationViewController;
         cv.filePath = [WQPDFManager pdfDestPathTmp:self.fileName];
     }
+    else if ([segue.identifier isEqualToString:@"changeOrderSegue"])
+    {
+        FSimageOrderChangingViewController *cv = segue.destinationViewController;
+        cv.delegate = self;
+        cv.medianArray = [self.mediaInfoArray mutableCopy];
+    }
 }
 
 #pragma mark - QBImagePickerControllerDelegate
 
 - (void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info
 {
-    NSArray *mediaInfoArray = (NSArray *)info;
+    self.mediaInfoArray = (NSArray *)info;
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self reorderingImages];
+    }];
     
-    [WQPDFManager WQCreatePDFFileWithSrc2:mediaInfoArray toDestFile:self.fileName withPassword:nil];
+    
+}
 
-    NSLog(@"Selected %d photos", mediaInfoArray.count);
+- (void)reorderingImages
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    FSimageOrderChangingViewController *cv = [sb instantiateViewControllerWithIdentifier:@"SBimageOrderChangingViewController"];
+    cv.medianArray = [self.mediaInfoArray mutableCopy];
+    cv.delegate = self;
     
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self presentViewController:cv animated:YES completion:nil];
+}
+
+- (void)makePDF
+{
+    [WQPDFManager WQCreatePDFFileWithSrc2:self.mediaInfoArray toDestFile:self.fileName withPassword:nil];
     
-    
-    
-    
-    //121
+    NSLog(@"Selected %d photos", self.mediaInfoArray.count);
     
     NSString *fileFullPath = [WQPDFManager pdfDestPathTmp:self.fileName];
     long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:fileFullPath error:nil][NSFileSize] longLongValue];
@@ -147,23 +165,12 @@
     self.fileSizeLabel.text = [NSString stringWithFormat:@"File Size: %.1f %@",formatedFileSize,fileSizeUnit];
     
     [FSUIViewAnimation AnimatedCenteringView:self.dialogView
-                            Duration:0.65
-                    AddtionAnimation:^{
-                        self.coverView.hidden = NO;
-                        self.coverView.alpha = 0.8;
-                    }
-                          Completion:nil];
-
-
-    
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-//                                  initWithTitle:NSLocalizedString(@"emailActionSheetTitle", nil)
-//                                  delegate:self
-//                                  cancelButtonTitle:NSLocalizedString(@"NO", nil)
-//                                  destructiveButtonTitle:nil
-//                                  otherButtonTitles:NSLocalizedString(@"YES", nil), nil];
-//    
-//    [actionSheet showInView:self.view];  
+                                    Duration:0.65
+                            AddtionAnimation:^{
+                                self.coverView.hidden = NO;
+                                self.coverView.alpha = 0.8;
+                            }
+                                  Completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController

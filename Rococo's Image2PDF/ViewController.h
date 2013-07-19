@@ -13,4 +13,8 @@
 
 @interface ViewController : UIViewController <QBImagePickerControllerDelegate,UIActionSheetDelegate,MFMailComposeViewControllerDelegate>
 
+@property (nonatomic, strong) NSArray *mediaInfoArray;
+
+- (void)makePDF;
+
 @end

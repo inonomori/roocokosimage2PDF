@@ -36,12 +36,20 @@
 		6815F40E16F4A5C000F3C242 /* ButtonSelectPic_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 6815F40C16F4A5C000F3C242 /* ButtonSelectPic_en.png */; };
 		6815F40F16F4A5C000F3C242 /* ButtonSelectPic_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6815F40D16F4A5C000F3C242 /* ButtonSelectPic_en@2x.png */; };
 		682CFDC117784C3E00267300 /* FSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 682CFDC017784C3E00267300 /* FSSettingsViewController.m */; };
+		686B099F17996BD8003532C8 /* navigationConfirmButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B099D17996BD8003532C8 /* navigationConfirmButton.png */; };
+		686B09A017996BD8003532C8 /* navigationConfirmButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686B099E17996BD8003532C8 /* navigationConfirmButton@2x.png */; };
 		6876962F16F489B100E5DB62 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6876962E16F489B100E5DB62 /* MessageUI.framework */; };
 		68B76FA016F49AA000AF0B8B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B76F9E16F49AA000AF0B8B /* Localizable.strings */; };
 		68CDE0E317784AFF008573A0 /* FSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CDE0E217784AFF008573A0 /* FSNavigationController.m */; };
 		68EB197C1799135200AC132A /* FSPdfPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB197B1799135200AC132A /* FSPdfPreviewViewController.m */; };
 		68EB197F1799192300AC132A /* navigationBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 68EB197D1799192300AC132A /* navigationBackButton.png */; };
 		68EB19801799192300AC132A /* navigationBackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68EB197E1799192300AC132A /* navigationBackButton@2x.png */; };
+		68EB198E179926C100AC132A /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB1984179926C100AC132A /* GMGridView.m */; };
+		68EB198F179926C100AC132A /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB1987179926C100AC132A /* GMGridViewCell.m */; };
+		68EB1990179926C100AC132A /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB1989179926C100AC132A /* GMGridViewLayoutStrategies.m */; };
+		68EB1991179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB198B179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.m */; };
+		68EB1992179926C100AC132A /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB198D179926C100AC132A /* UIView+GMGridViewAdditions.m */; };
+		68EB1995179927FB00AC132A /* FSimageOrderChangingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB1994179927FA00AC132A /* FSimageOrderChangingViewController.m */; };
 		68FF9CF5177D84840081A6E0 /* backButtonDark.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF9CF3177D84840081A6E0 /* backButtonDark.png */; };
 		68FF9CF6177D84840081A6E0 /* backButtonDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF9CF4177D84840081A6E0 /* backButtonDark@2x.png */; };
 		68FF9CFD177D90130081A6E0 /* UIViewController+FSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF9CFC177D90130081A6E0 /* UIViewController+FSViewController.m */; };
@@ -119,6 +127,10 @@
 		6815F41016F4A5F400F3C242 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		682CFDBF17784C3E00267300 /* FSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSettingsViewController.h; sourceTree = "<group>"; };
 		682CFDC017784C3E00267300 /* FSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSettingsViewController.m; sourceTree = "<group>"; };
+		686B099D17996BD8003532C8 /* navigationConfirmButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigationConfirmButton.png; path = Resources/UI/navigationConfirmButton.png; sourceTree = "<group>"; };
+		686B099E17996BD8003532C8 /* navigationConfirmButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigationConfirmButton@2x.png"; path = "Resources/UI/navigationConfirmButton@2x.png"; sourceTree = "<group>"; };
+		686B09A117997359003532C8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		686B09A21799735B003532C8 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		6876962E16F489B100E5DB62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		68A38F6D1750646700F2C112 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		68A38F6F1750650500F2C112 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -130,6 +142,20 @@
 		68EB197B1799135200AC132A /* FSPdfPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPdfPreviewViewController.m; sourceTree = "<group>"; };
 		68EB197D1799192300AC132A /* navigationBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigationBackButton.png; path = Resources/UI/navigationBackButton.png; sourceTree = "<group>"; };
 		68EB197E1799192300AC132A /* navigationBackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigationBackButton@2x.png"; path = "Resources/UI/navigationBackButton@2x.png"; sourceTree = "<group>"; };
+		68EB1982179926C100AC132A /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
+		68EB1983179926C100AC132A /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
+		68EB1984179926C100AC132A /* GMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridView.m; sourceTree = "<group>"; };
+		68EB1985179926C100AC132A /* GMGridViewCell+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridViewCell+Extended.h"; sourceTree = "<group>"; };
+		68EB1986179926C100AC132A /* GMGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewCell.h; sourceTree = "<group>"; };
+		68EB1987179926C100AC132A /* GMGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewCell.m; sourceTree = "<group>"; };
+		68EB1988179926C100AC132A /* GMGridViewLayoutStrategies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewLayoutStrategies.h; sourceTree = "<group>"; };
+		68EB1989179926C100AC132A /* GMGridViewLayoutStrategies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewLayoutStrategies.m; sourceTree = "<group>"; };
+		68EB198A179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		68EB198B179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		68EB198C179926C100AC132A /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		68EB198D179926C100AC132A /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		68EB1993179927FA00AC132A /* FSimageOrderChangingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSimageOrderChangingViewController.h; sourceTree = "<group>"; };
+		68EB1994179927FA00AC132A /* FSimageOrderChangingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSimageOrderChangingViewController.m; sourceTree = "<group>"; };
 		68FF9CF3177D84840081A6E0 /* backButtonDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButtonDark.png; path = Resources/UI/backButtonDark.png; sourceTree = "<group>"; };
 		68FF9CF4177D84840081A6E0 /* backButtonDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "backButtonDark@2x.png"; path = "Resources/UI/backButtonDark@2x.png"; sourceTree = "<group>"; };
 		68FF9CFB177D90130081A6E0 /* UIViewController+FSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FSViewController.h"; sourceTree = "<group>"; };
@@ -158,8 +184,6 @@
 		68FF9D25177E83B50081A6E0 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		68FF9D28177E867E0081A6E0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		68FF9D2A177E86D30081A6E0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		68FF9D2F177E948B0081A6E0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
-		68FF9D30177E948E0081A6E0 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +263,8 @@
 				682CFDC017784C3E00267300 /* FSSettingsViewController.m */,
 				68EB197A1799135200AC132A /* FSPdfPreviewViewController.h */,
 				68EB197B1799135200AC132A /* FSPdfPreviewViewController.m */,
+				68EB1993179927FA00AC132A /* FSimageOrderChangingViewController.h */,
+				68EB1994179927FA00AC132A /* FSimageOrderChangingViewController.m */,
 				68FF9D02177DB39A0081A6E0 /* pageSize.json */,
 				27CD18CE16E72A29006B6DCF /* MainStoryboard.storyboard */,
 				27CD18DA16E72AA7006B6DCF /* WQPDFManager.h */,
@@ -272,6 +298,7 @@
 		27CD18DF16E7355A006B6DCF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				68EB1981179926C100AC132A /* GMGridView */,
 				27CD18E016E7355A006B6DCF /* QBAssetCollectionViewController.h */,
 				27CD18E116E7355A006B6DCF /* QBAssetCollectionViewController.m */,
 				27CD18E216E7355A006B6DCF /* QBAssetCollectionViewControllerDelegate.h */,
@@ -319,6 +346,8 @@
 				68FF9D17177E83320081A6E0 /* Page_LETTER@2x.png */,
 				68EB197D1799192300AC132A /* navigationBackButton.png */,
 				68EB197E1799192300AC132A /* navigationBackButton@2x.png */,
+				686B099D17996BD8003532C8 /* navigationConfirmButton.png */,
+				686B099E17996BD8003532C8 /* navigationConfirmButton@2x.png */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -333,6 +362,25 @@
 			);
 			name = Resources;
 			path = "Rococo's Image2PDF";
+			sourceTree = "<group>";
+		};
+		68EB1981179926C100AC132A /* GMGridView */ = {
+			isa = PBXGroup;
+			children = (
+				68EB1982179926C100AC132A /* GMGridView-Constants.h */,
+				68EB1983179926C100AC132A /* GMGridView.h */,
+				68EB1984179926C100AC132A /* GMGridView.m */,
+				68EB1985179926C100AC132A /* GMGridViewCell+Extended.h */,
+				68EB1986179926C100AC132A /* GMGridViewCell.h */,
+				68EB1987179926C100AC132A /* GMGridViewCell.m */,
+				68EB1988179926C100AC132A /* GMGridViewLayoutStrategies.h */,
+				68EB1989179926C100AC132A /* GMGridViewLayoutStrategies.m */,
+				68EB198A179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.h */,
+				68EB198B179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.m */,
+				68EB198C179926C100AC132A /* UIView+GMGridViewAdditions.h */,
+				68EB198D179926C100AC132A /* UIView+GMGridViewAdditions.m */,
+			);
+			path = GMGridView;
 			sourceTree = "<group>";
 		};
 		68FF9D04177DB81C0081A6E0 /* JSONKit */ = {
@@ -432,6 +480,8 @@
 				68FF9D2E177E8B0F0081A6E0 /* Default-568h@2x.png in Resources */,
 				68EB197F1799192300AC132A /* navigationBackButton.png in Resources */,
 				68EB19801799192300AC132A /* navigationBackButton@2x.png in Resources */,
+				686B099F17996BD8003532C8 /* navigationConfirmButton.png in Resources */,
+				686B09A017996BD8003532C8 /* navigationConfirmButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +512,12 @@
 				68FF9D00177DA1400081A6E0 /* FSPagingScrollView.m in Sources */,
 				68FF9D07177DB81C0081A6E0 /* JSONKit.m in Sources */,
 				68EB197C1799135200AC132A /* FSPdfPreviewViewController.m in Sources */,
+				68EB198E179926C100AC132A /* GMGridView.m in Sources */,
+				68EB198F179926C100AC132A /* GMGridViewCell.m in Sources */,
+				68EB1990179926C100AC132A /* GMGridViewLayoutStrategies.m in Sources */,
+				68EB1991179926C100AC132A /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
+				68EB1992179926C100AC132A /* UIView+GMGridViewAdditions.m in Sources */,
+				68EB1995179927FB00AC132A /* FSimageOrderChangingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,8 +538,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6815F41016F4A5F400F3C242 /* en */,
-				68FF9D2F177E948B0081A6E0 /* zh-Hans */,
-				68FF9D30177E948E0081A6E0 /* zh-Hant-TW */,
+				686B09A117997359003532C8 /* zh-Hans */,
+				686B09A21799735B003532C8 /* zh-Hant-TW */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
