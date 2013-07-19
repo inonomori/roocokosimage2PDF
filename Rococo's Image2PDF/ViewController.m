@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIButton+FSUIButton.h"
+#import "FSPdfPreviewViewController.h"
 
 @interface ViewController ()
 
@@ -89,6 +90,16 @@
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         sender.frame = sender.originalFrame;
     } completion:nil];
+}
+
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"previewSegue"])
+    {
+        FSPdfPreviewViewController *cv = segue.destinationViewController;
+        cv.filePath = [WQPDFManager pdfDestPathTmp:self.fileName];
+    }
 }
 
 #pragma mark - QBImagePickerControllerDelegate

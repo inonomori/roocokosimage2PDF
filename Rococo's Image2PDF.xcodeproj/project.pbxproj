@@ -39,6 +39,9 @@
 		6876962F16F489B100E5DB62 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6876962E16F489B100E5DB62 /* MessageUI.framework */; };
 		68B76FA016F49AA000AF0B8B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B76F9E16F49AA000AF0B8B /* Localizable.strings */; };
 		68CDE0E317784AFF008573A0 /* FSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CDE0E217784AFF008573A0 /* FSNavigationController.m */; };
+		68EB197C1799135200AC132A /* FSPdfPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EB197B1799135200AC132A /* FSPdfPreviewViewController.m */; };
+		68EB197F1799192300AC132A /* navigationBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 68EB197D1799192300AC132A /* navigationBackButton.png */; };
+		68EB19801799192300AC132A /* navigationBackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68EB197E1799192300AC132A /* navigationBackButton@2x.png */; };
 		68FF9CF5177D84840081A6E0 /* backButtonDark.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF9CF3177D84840081A6E0 /* backButtonDark.png */; };
 		68FF9CF6177D84840081A6E0 /* backButtonDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FF9CF4177D84840081A6E0 /* backButtonDark@2x.png */; };
 		68FF9CFD177D90130081A6E0 /* UIViewController+FSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF9CFC177D90130081A6E0 /* UIViewController+FSViewController.m */; };
@@ -123,6 +126,10 @@
 		68B76F9F16F49AA000AF0B8B /* en */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		68CDE0E117784AFF008573A0 /* FSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNavigationController.h; sourceTree = "<group>"; };
 		68CDE0E217784AFF008573A0 /* FSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNavigationController.m; sourceTree = "<group>"; };
+		68EB197A1799135200AC132A /* FSPdfPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPdfPreviewViewController.h; sourceTree = "<group>"; };
+		68EB197B1799135200AC132A /* FSPdfPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPdfPreviewViewController.m; sourceTree = "<group>"; };
+		68EB197D1799192300AC132A /* navigationBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigationBackButton.png; path = Resources/UI/navigationBackButton.png; sourceTree = "<group>"; };
+		68EB197E1799192300AC132A /* navigationBackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigationBackButton@2x.png"; path = "Resources/UI/navigationBackButton@2x.png"; sourceTree = "<group>"; };
 		68FF9CF3177D84840081A6E0 /* backButtonDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButtonDark.png; path = Resources/UI/backButtonDark.png; sourceTree = "<group>"; };
 		68FF9CF4177D84840081A6E0 /* backButtonDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "backButtonDark@2x.png"; path = "Resources/UI/backButtonDark@2x.png"; sourceTree = "<group>"; };
 		68FF9CFB177D90130081A6E0 /* UIViewController+FSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FSViewController.h"; sourceTree = "<group>"; };
@@ -230,6 +237,8 @@
 				68FF9CFF177DA1400081A6E0 /* FSPagingScrollView.m */,
 				682CFDBF17784C3E00267300 /* FSSettingsViewController.h */,
 				682CFDC017784C3E00267300 /* FSSettingsViewController.m */,
+				68EB197A1799135200AC132A /* FSPdfPreviewViewController.h */,
+				68EB197B1799135200AC132A /* FSPdfPreviewViewController.m */,
 				68FF9D02177DB39A0081A6E0 /* pageSize.json */,
 				27CD18CE16E72A29006B6DCF /* MainStoryboard.storyboard */,
 				27CD18DA16E72AA7006B6DCF /* WQPDFManager.h */,
@@ -308,6 +317,8 @@
 				68FF9D15177E83320081A6E0 /* Page_B5@2x.png */,
 				68FF9D16177E83320081A6E0 /* Page_LETTER.png */,
 				68FF9D17177E83320081A6E0 /* Page_LETTER@2x.png */,
+				68EB197D1799192300AC132A /* navigationBackButton.png */,
+				68EB197E1799192300AC132A /* navigationBackButton@2x.png */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -419,6 +430,8 @@
 				68FF9D2C177E8B0B0081A6E0 /* Default.png in Resources */,
 				68FF9D2D177E8B0D0081A6E0 /* Default@2x.png in Resources */,
 				68FF9D2E177E8B0F0081A6E0 /* Default-568h@2x.png in Resources */,
+				68EB197F1799192300AC132A /* navigationBackButton.png in Resources */,
+				68EB19801799192300AC132A /* navigationBackButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +461,7 @@
 				68FF9CFD177D90130081A6E0 /* UIViewController+FSViewController.m in Sources */,
 				68FF9D00177DA1400081A6E0 /* FSPagingScrollView.m in Sources */,
 				68FF9D07177DB81C0081A6E0 /* JSONKit.m in Sources */,
+				68EB197C1799135200AC132A /* FSPdfPreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

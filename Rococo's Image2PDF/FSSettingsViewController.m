@@ -16,7 +16,7 @@
 
 @interface FSSettingsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *contentView;
+//@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet FSPagingScrollView *scrollView;
 @property (nonatomic, strong) NSArray *pageArray;
 @property (nonatomic) NSInteger pageIndex;
@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
     self.pageArray = @[@"LETTER",@"A3",@"A4",@"A5",@"B4",@"B5"];
-    self.scrollView.contentSize = self.contentView.frame.size;
+    //self.scrollView.contentSize = self.contentView.frame.size;
     [self addObserver:self forKeyPath:@"pageIndex" options:NSKeyValueObservingOptionOld context:nil];
     NSData *json = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pageSize" ofType:@"json"]];
     self.allPageDictionary = [[[JSONDecoder alloc] init] objectWithData:json];
@@ -153,7 +153,11 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat pageWidth = self.scrollView.frame.size.width;
-    self.pageIndex = floor((self.scrollView.contentOffset.x-pageWidth/2)/pageWidth) + 1;
+    NSInteger tmp = floor((self.scrollView.contentOffset.x-pageWidth/2)/pageWidth) + 1;
+    IFADOB(tmp < 0, tmp = 0);
+    IFADOB(tmp >= [self.pageArray count], tmp = [self.pageArray count] -1);
+
+    self.pageIndex = tmp;
 }
 
 @end
