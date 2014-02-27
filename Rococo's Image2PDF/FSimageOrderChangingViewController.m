@@ -34,7 +34,13 @@
     
 	// Do any additional setup after loading the view.
     NSInteger spacing = 30;
-    self.gmGridView = [[GMGridView alloc] initWithFrame:CGRectMake(0, 44, 320, 416)];
+    
+    CGRect frame = CGRectMake(0, 44, [FSToolBox getApplicationFrameSize].width,[FSToolBox getApplicationFrameSize].height-44);;
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+        frame = CGRectMake(0, 64, [FSToolBox getApplicationFrameSize].width,[FSToolBox getApplicationFrameSize].height - 64);
+
+    self.gmGridView = [[GMGridView alloc] initWithFrame:frame];
     
     self.gmGridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.gmGridView.backgroundColor = [UIColor clearColor];
@@ -85,15 +91,17 @@
 
 - (IBAction)backButtonTouched:(UIButton *)sender
 {
-    [self.delegate makePDF];
-    [self.delegate dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate dismissViewControllerAnimated:YES completion:^{
+        [self.delegate makePDF];
+    }];
 }
 
 - (IBAction)confirmButtonTouched:(UIButton *)sender
 {
     self.delegate.mediaInfoArray = [self.medianArray copy];
-    [self.delegate makePDF];
-    [self.delegate dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate dismissViewControllerAnimated:YES completion:^{
+        [self.delegate makePDF];
+    }];
 }
 
 //////////////////////////////////////////////////////////////
@@ -130,16 +138,22 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
-        UIImage *itemImage = [[self.medianArray objectAtIndex:index] objectForKey:UIImagePickerControllerOriginalImage];
+        ALAssetRepresentation *rep = [self.medianArray[index] defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        UIImage *itemImage = [UIImage imageWithCGImage:iref scale:[rep scale] orientation:UIImageOrientationUp];
         imageView.image = itemImage;
-        [imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [imageView setContentMode:UIViewContentModeScaleAspectFill];
         imageView.clipsToBounds = YES;
         imageView.layer.borderWidth = 1;
+        imageView.layer.cornerRadius = 8;
         imageView.layer.borderColor = [[UIColor grayColor] CGColor];
         
         [cell.contentView addSubview:imageView];
+        cell.contentView.layer.shadowColor = [UIColor blackColor].CGColor;
+        cell.contentView.layer.shadowOpacity = 0.2f;
+        cell.contentView.layer.shadowOffset = CGSizeMake(0, 0);
     });
-        
+    
     return cell;
 }
 
@@ -290,5 +304,8 @@
     
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 @end

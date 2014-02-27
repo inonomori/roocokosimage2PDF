@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define A(_x,_y) _x_y
+
 @interface FSSettingsViewController : UIViewController <UIScrollViewDelegate>
+
+
 
 @end

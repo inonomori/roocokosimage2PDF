@@ -10,27 +10,41 @@
 #import "UIButton+FSUIButton.h"
 #import "FSPdfPreviewViewController.h"
 #import "FSimageOrderChangingViewController.h"
+#import "BackgroundCoverView.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) NSString* fileName;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIButton *picSelectionButton;
-@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (strong, nonatomic) BackgroundCoverView *coverView;
 @property (weak, nonatomic) IBOutlet UIView *dialogView;
 @property (weak, nonatomic) IBOutlet UILabel *fileSizeLabel;
+@property (nonatomic, strong) QBImagePickerController *imagePickerController;
 
 @end
 
 
 @implementation ViewController
 
+- (BackgroundCoverView*)coverView
+{
+    if (!_coverView)
+    {
+        _coverView = [[BackgroundCoverView alloc] initWithFrame:CGRectMake(0, 0, [FSToolBox getApplicationFrameSize].width, [FSToolBox getApplicationFrameSize].height)];
+        _coverView.alpha = 0.0;
+    }
+    return _coverView;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     self.fileName = @"roocoko.pdf";
-//    [self.picSelectionButton setImage:[UIImage imageNamed:@"ButtonSelectPic_en_actived.png"] forState:UIControlStateHighlighted];
+    self.dialogView.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.dialogView.layer.shadowOpacity = 0.5f;
+    self.dialogView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.dialogView.layer.shadowRadius = 4.0f;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -56,12 +70,14 @@
                          if (finished)
                              [sender touched:^{
                                  
-                                 QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
-                                 imagePickerController.delegate = weakSelf;
-                                 imagePickerController.allowsMultipleSelection = YES;
-                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+                                  self.imagePickerController = [[QBImagePickerController alloc] init];
+                                 self.imagePickerController.delegate = weakSelf;
+                                 self.imagePickerController.allowsMultipleSelection = YES;
+                                 self.imagePickerController.groupTypes = @[@(ALAssetsGroupSavedPhotos),
+                                                                      @(ALAssetsGroupPhotoStream),
+                                                                      @(ALAssetsGroupAlbum)];
+                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.imagePickerController];
                                  [weakSelf presentViewController:navigationController animated:YES completion:NULL];
-
                              }];
                      }];
 }
@@ -111,21 +127,30 @@
 
 #pragma mark - QBImagePickerControllerDelegate
 
-- (void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info
+- (void)imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
 {
-    self.mediaInfoArray = (NSArray *)info;
+    self.mediaInfoArray = assets;
     [self dismissViewControllerAnimated:YES completion:^{
         [self reorderingImages];
     }];
-    
-    
 }
+
+//- (void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info
+//{
+//    self.mediaInfoArray = (NSArray *)info;
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        [self reorderingImages];
+//    }];
+//    
+//    
+//}
 
 - (void)reorderingImages
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     FSimageOrderChangingViewController *cv = [sb instantiateViewControllerWithIdentifier:@"SBimageOrderChangingViewController"];
     cv.medianArray = [self.mediaInfoArray mutableCopy];
+    cv.testArray = self.mediaInfoArray;
     cv.delegate = self;
     
     [self presentViewController:cv animated:YES completion:nil];
@@ -164,10 +189,10 @@
     
     self.fileSizeLabel.text = [NSString stringWithFormat:@"File Size: %.1f %@",formatedFileSize,fileSizeUnit];
     
+    [self.view insertSubview:self.coverView belowSubview:self.dialogView];
     [FSUIViewAnimation AnimatedCenteringView:self.dialogView
                                     Duration:0.65
                             AddtionAnimation:^{
-                                self.coverView.hidden = NO;
                                 self.coverView.alpha = 0.8;
                             }
                                   Completion:nil];
@@ -258,7 +283,7 @@
                          self.coverView.alpha = 0;
                      }
                      completion:^(BOOL finished){
-                         self.coverView.hidden = YES;
+                         [self.coverView removeFromSuperview];
                      }
      ];
 }
@@ -273,9 +298,8 @@
                          self.coverView.alpha = 0;
                      }
                      completion:^(BOOL finished){
-                         self.coverView.hidden = YES;
+                         [self.coverView removeFromSuperview];
                          [self sendFileViaEmail];
-
                      }
      ];
 }

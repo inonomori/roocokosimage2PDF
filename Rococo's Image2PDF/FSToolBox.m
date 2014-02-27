@@ -20,9 +20,10 @@
 + (CGSize)getApplicationFrameSize
 {
     CGSize size = [UIScreen mainScreen].applicationFrame.size;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+        size = [UIScreen mainScreen].bounds.size;
     UIInterfaceOrientation deviceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-    if (deviceOrientation == UIInterfaceOrientationLandscapeLeft || deviceOrientation == UIInterfaceOrientationLandscapeRight)
-    {
+    if (deviceOrientation == UIInterfaceOrientationLandscapeLeft || deviceOrientation == UIInterfaceOrientationLandscapeRight){
         TLSWAP(size.width, size.height);
     }
     return size;

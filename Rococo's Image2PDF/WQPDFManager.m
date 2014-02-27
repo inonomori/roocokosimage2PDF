@@ -7,6 +7,7 @@
 //
 
 #import "WQPDFManager.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation WQPDFManager
 
@@ -78,8 +79,11 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
     boxData = CFDataCreate(NULL,(const UInt8 *)&pageRect, sizeof (CGRect));
     CFDictionarySetValue(pageDictionary, kCGPDFContextMediaBox, boxData);
     
-    for (NSDictionary* iter in mediaInfoArray){
-        UIImage *chosenImage = [iter objectForKey:UIImagePickerControllerOriginalImage];
+    for (ALAsset* iter in mediaInfoArray)
+    {
+        ALAssetRepresentation *rep = [iter defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        UIImage *chosenImage = [UIImage imageWithCGImage:iref scale:[rep scale] orientation:UIImageOrientationUp];
         
         //rescaling image here
         CGFloat imageScale=1;

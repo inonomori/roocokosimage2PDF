@@ -82,6 +82,10 @@
 
 - (IBAction)cancelButtonTouched:(UIButton *)sender
 {
+    NSDictionary *pageSizeDic = self.allPageDictionary[[NSString stringWithFormat:@"PAGESIZE_%@",self.pageArray[self.pageIndex]]];
+    NSLog(@"%@",pageSizeDic);
+    [[NSUserDefaults standardUserDefaults] setObject:pageSizeDic forKey:@"pageSize"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     FSNavigationController *navCV = (FSNavigationController*)self.navigationController;
     [navCV popViewControllerWithSlideAnimation];
 }
@@ -91,6 +95,7 @@
     return NO;
 }
 
+/*
 - (IBAction)commitButtonTouched:(UIButton *)sender
 {
     __weak __block FSSettingsViewController *weakSelf = self;
@@ -138,6 +143,7 @@
      }
                      completion:nil];
 }
+ */
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {

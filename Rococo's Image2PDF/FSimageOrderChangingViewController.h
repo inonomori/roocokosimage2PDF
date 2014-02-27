@@ -13,6 +13,7 @@
 @interface FSimageOrderChangingViewController : UIViewController<GMGridViewDataSource, GMGridViewSortingDelegate, GMGridViewTransformationDelegate, GMGridViewActionDelegate>
 
 @property (nonatomic, strong) NSMutableArray *medianArray;
+@property (nonatomic, strong) NSArray *testArray;
 @property (nonatomic, weak) ViewController *delegate; //TODO: use protocol(later, im lazy)
 
 @end
