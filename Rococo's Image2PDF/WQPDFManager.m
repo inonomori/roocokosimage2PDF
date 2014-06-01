@@ -37,7 +37,7 @@ void WQDrawContent(CGContextRef myContext,
 }
 
 
-void MyCreatePDFFile2 (NSArray* mediaInfoArray,
+void MyCreatePDFFile (NSArray* mediaInfoArray,
                       CGRect pageRect,
                       const char *filepath,
                       CFStringRef password)
@@ -118,7 +118,7 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
     CFRelease(boxData);
 }
 
-+ (void)WQCreatePDFFileWithSrc2:(NSArray *)mediaInfoArray
++ (void)WQCreatePDFFileWithSrc:(NSArray *)mediaInfoArray
                      toDestFile:(NSString *)destFileName
                    withPassword:(NSString *)pw
 {
@@ -129,6 +129,6 @@ void MyCreatePDFFile2 (NSArray* mediaInfoArray,
     CGFloat width = [pageDicionary[@"width"] floatValue];
     CGFloat height = [pageDicionary[@"height"] floatValue];
     CGRect rect = CGRectMake(0, 0, width, height);
-    MyCreatePDFFile2(mediaInfoArray,rect, path, password);
+    MyCreatePDFFile(mediaInfoArray,rect, path, password);
 }
 @end

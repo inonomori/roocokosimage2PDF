@@ -189,10 +189,10 @@
     CGPoint relativeLocation = CGPointMake(location.x - self.edgeInsets.left,
                                            location.y - self.edgeInsets.top);
     
-    int col = (int) (relativeLocation.x / (self.itemSize.width + self.itemSpacing)); 
-    int row = (int) (relativeLocation.y / (self.itemSize.height + self.itemSpacing));
+    NSInteger col = (NSInteger) (relativeLocation.x / (self.itemSize.width + self.itemSpacing));
+    NSInteger row = (NSInteger) (relativeLocation.y / (self.itemSize.height + self.itemSpacing));
     
-    int position = col + row * self.numberOfItemsPerRow;
+    NSInteger position = col + row * self.numberOfItemsPerRow;
     
     if (position >= [self itemCount] || position < 0) 
     {
@@ -305,10 +305,10 @@
     CGPoint relativeLocation = CGPointMake(location.x - self.edgeInsets.left,
                                            location.y - self.edgeInsets.top);
 
-    int col = (int) (relativeLocation.x / (self.itemSize.width + self.itemSpacing)); 
-    int row = (int) (relativeLocation.y / (self.itemSize.height + self.itemSpacing));
+    NSInteger col = (NSInteger) (relativeLocation.x / (self.itemSize.width + self.itemSpacing));
+    NSInteger row = (NSInteger) (relativeLocation.y / (self.itemSize.height + self.itemSpacing));
     
-    int position = row + col * self.numberOfItemsPerColumn;
+    NSInteger position = row + col * self.numberOfItemsPerColumn;
     
     if (position >= [self itemCount] || position < 0) 
     {
@@ -472,10 +472,10 @@
     CGPoint relativeLocation = CGPointMake(location.x - originForFirstItemInPage.x,
                                            location.y - originForFirstItemInPage.y);
 
-    int col = (int) (relativeLocation.x / (self.itemSize.width + self.itemSpacing)); 
-    int row = (int) (relativeLocation.y / (self.itemSize.height + self.itemSpacing));
+    NSInteger col = (NSInteger) (relativeLocation.x / (self.itemSize.width + self.itemSpacing));
+    NSInteger row = (NSInteger) (relativeLocation.y / (self.itemSize.height + self.itemSpacing));
     
-    int position = [self positionForItemAtColumn:col row:row page:page];
+    NSInteger position = [self positionForItemAtColumn:col row:row page:page];
  
     if (position >= [self itemCount] || position < 0) 
     {

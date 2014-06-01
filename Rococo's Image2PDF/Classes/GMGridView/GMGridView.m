@@ -772,8 +772,8 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
 
 - (void)sortingMoveDidContinueToPoint:(CGPoint)point
 {
-    int position = [self.layoutStrategy itemPositionFromLocation:point];
-    int tag = position + kTagOffset;
+    NSInteger position = [self.layoutStrategy itemPositionFromLocation:point];
+    NSInteger tag = position + kTagOffset;
     
     if (position != GMGV_INVALID_POSITION && position != _sortFuturePosition && position < _numberTotalItems) 
     {
@@ -1626,7 +1626,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     {        
         cell = [self newItemSubViewForPosition:index];
         
-        for (int i = _numberTotalItems - 1; i >= index; i--)
+        for (NSInteger i = _numberTotalItems - 1; i >= index; i--)
         {
             UIView *oldView = [self cellForItemAtIndex:i];
             oldView.tag = oldView.tag + 1;
@@ -1679,7 +1679,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     
     GMGridViewCell *cell = [self cellForItemAtIndex:index];
     
-    for (int i = index + 1; i < _numberTotalItems; i++)
+    for (NSInteger i = index + 1; i < _numberTotalItems; i++)
     {
         GMGridViewCell *oldView = [self cellForItemAtIndex:i];
         oldView.tag = oldView.tag - 1;

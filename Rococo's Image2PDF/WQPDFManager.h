@@ -21,7 +21,7 @@
  *	@param 	pw              NSString型 要设定的密码
  */
 
-+ (void)WQCreatePDFFileWithSrc2:(NSArray *)mediaInfoArray
++ (void)WQCreatePDFFileWithSrc:(NSArray *)mediaInfoArray
                      toDestFile:(NSString *)destFileName
                    withPassword:(NSString *)pw;
 

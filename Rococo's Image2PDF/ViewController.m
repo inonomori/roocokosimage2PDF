@@ -158,7 +158,7 @@
 
 - (void)makePDF
 {
-    [WQPDFManager WQCreatePDFFileWithSrc2:self.mediaInfoArray toDestFile:self.fileName withPassword:nil];
+    [WQPDFManager WQCreatePDFFileWithSrc:self.mediaInfoArray toDestFile:self.fileName withPassword:nil];
     
     NSLog(@"Selected %d photos", self.mediaInfoArray.count);
     

@@ -169,7 +169,7 @@
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    NSLog(@"Did tap at index %d", position);
+    NSLog(@"Did tap at index %ld", (long)position);
 }
 
 - (void)GMGridViewDidTapOnEmptySpace:(GMGridView *)gridView
@@ -177,23 +177,6 @@
     NSLog(@"Tap on empty space");
 }
 
-//- (void)GMGridView:(GMGridView *)gridView processDeleteActionForItemAtIndex:(NSInteger)index
-//{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure you want to delete this item?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
-//    
-//    [alert show];
-//    
-//    _lastDeleteItemIndexAsked = index;
-//}
-//
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if (buttonIndex == 1)
-//    {
-//        [self.currentData removeObjectAtIndex:_lastDeleteItemIndexAsked];
-//        [_gmGridView removeObjectAtIndex:_lastDeleteItemIndexAsked withAnimation:GMGridViewItemAnimationFade];
-//    }
-//}
 
 //////////////////////////////////////////////////////////////
 #pragma mark GMGridViewSortingDelegate
@@ -262,7 +245,7 @@
     fullView.bounds = CGRectMake(0, 0, size.width, size.height);
     
     UILabel *label = [[UILabel alloc] initWithFrame:fullView.bounds];
-    label.text = [NSString stringWithFormat:@"Fullscreen View for cell at index %d", index];
+    label.text = [NSString stringWithFormat:@"Fullscreen View for cell at index %ld", (long)index];
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -304,7 +287,8 @@
     
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
     return UIStatusBarStyleLightContent;
 }
 

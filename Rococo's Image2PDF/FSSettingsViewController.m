@@ -11,7 +11,6 @@
 #import "UIViewController+FSViewController.h"
 #import "FSPagingScrollView.h"
 #import "FSPageValueDefinition.h"
-#import "JSONKit.h"
 #import "UIButton+FSUIButton.h"
 
 @interface FSSettingsViewController ()
@@ -42,8 +41,10 @@
     self.pageArray = @[@"LETTER",@"A3",@"A4",@"A5",@"B4",@"B5"];
     //self.scrollView.contentSize = self.contentView.frame.size;
     [self addObserver:self forKeyPath:@"pageIndex" options:NSKeyValueObservingOptionOld context:nil];
-    NSData *json = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pageSize" ofType:@"json"]];
-    self.allPageDictionary = [[[JSONDecoder alloc] init] objectWithData:json];
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pageSize" ofType:@"json"]];
+    
+    NSError *error;
+    self.allPageDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
 }
 
 - (void)viewDidAppear:(BOOL)animated

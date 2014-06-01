@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "FSPageValueDefinition.h"
-#import "JSONKit.h"
 
 @implementation AppDelegate
 
@@ -16,9 +15,10 @@
 {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"pageSize"])
     {
+        NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pageSize" ofType:@"json"]];
         
-        NSData *json = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pageSize" ofType:@"json"]];
-        NSDictionary *allPageDictionary =  [[[JSONDecoder alloc] init] objectWithData:json];
+        NSError *error;
+        NSDictionary *allPageDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
         
         NSDictionary *pageSizeDictionary = allPageDictionary[@"PAGESIZE_A4"];
         [[NSUserDefaults standardUserDefaults] setObject:pageSizeDictionary forKey:@"pageSize"];
