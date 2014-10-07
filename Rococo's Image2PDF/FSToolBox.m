@@ -104,8 +104,6 @@
     NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
     [dateformatter setDateFormat:@"HH:mm"];
     NSString *  locationString=[dateformatter stringFromDate:senddate];
-    //[dateformatter setDateFormat:@"YYYY-MM-dd-HH-mm-ss"];
-    //NSString *  morelocationString=[dateformatter stringFromDate:senddate];
     
     NSCalendar  * cal=[NSCalendar  currentCalendar];
     NSUInteger  unitFlags=NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
@@ -113,7 +111,7 @@
     NSInteger year=[conponent year];
     NSInteger month=[conponent month];
     NSInteger day=[conponent day];
-    NSString *  nsDateString= [NSString  stringWithFormat:@"%4d年%2d月%2d日",year,month,day];
+    NSString *  nsDateString= [NSString  stringWithFormat:@"%4ld年%2ld月%2ld日",(long)year,(long)month,(long)day];
     
     NSString* result = [NSString stringWithFormat:@"%@-%@",nsDateString,locationString];
     

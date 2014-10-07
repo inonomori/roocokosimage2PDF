@@ -101,7 +101,7 @@
 
 - (NSArray*)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    for (int i = [self.viewControllers count]-2; i>0; --i)
+    for (NSInteger i = [self.viewControllers count]-2; i>0; --i)
     {
         if (self.viewControllers[i] == viewController)
             break;

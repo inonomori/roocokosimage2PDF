@@ -27,8 +27,13 @@
 
 @implementation ViewController
 
-- (BackgroundCoverView*)coverView
+- (void)setFileName:(NSString *)fileName
 {
+    _fileName = fileName;
+}
+
+- (BackgroundCoverView*)coverView
+{    
     if (!_coverView)
     {
         _coverView = [[BackgroundCoverView alloc] initWithFrame:CGRectMake(0, 0, [FSToolBox getApplicationFrameSize].width, [FSToolBox getApplicationFrameSize].height)];
@@ -160,7 +165,7 @@
 {
     [WQPDFManager WQCreatePDFFileWithSrc:self.mediaInfoArray toDestFile:self.fileName withPassword:nil];
     
-    NSLog(@"Selected %d photos", self.mediaInfoArray.count);
+    NSLog(@"Selected %lu photos", (unsigned long)self.mediaInfoArray.count);
     
     NSString *fileFullPath = [WQPDFManager pdfDestPathTmp:self.fileName];
     long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:fileFullPath error:nil][NSFileSize] longLongValue];

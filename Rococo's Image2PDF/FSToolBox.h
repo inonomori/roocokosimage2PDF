@@ -39,7 +39,7 @@ B = __tmp;\
 @interface FSToolBox : NSObject
 
 + (CGSize)getApplicationFrameSize;
-+ (UIColor *)colorWithHex:(long)hexColor alpha:(float)opacity;
++ (UIColor *)colorWithHex:(long)hexColor alpha:(CGFloat)opacity;
 + (NSInteger)getSystemVersionAsAnInteger;
 + (BOOL)isCurrentDevicePhone;
 + (BOOL)isCurrentDevicePad;

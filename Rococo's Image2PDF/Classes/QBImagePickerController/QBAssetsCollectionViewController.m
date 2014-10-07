@@ -12,12 +12,17 @@
 #import "QBAssetsCollectionViewCell.h"
 #import "QBAssetsCollectionFooterView.h"
 
+#define TAG_BIGPHOTO_BLACK_BG 2931
+
 @interface QBAssetsCollectionViewController ()
 
 @property (nonatomic, strong) NSMutableArray *assets;
 
-@property (nonatomic, assign) NSInteger numberOfPhotos;
-@property (nonatomic, assign) NSInteger numberOfVideos;
+@property (nonatomic, assign) NSUInteger numberOfAssets;
+@property (nonatomic, assign) NSUInteger numberOfPhotos;
+@property (nonatomic, assign) NSUInteger numberOfVideos;
+
+@property (nonatomic, weak) QBAssetsCollectionViewCell *longPressedCell;
 
 @end
 
@@ -81,25 +86,31 @@
     // Set title
     self.title = [self.assetsGroup valueForProperty:ALAssetsGroupPropertyName];
     
-    // Get the number of photos and videos
-    [self.assetsGroup setAssetsFilter:[ALAssetsFilter allPhotos]];
-    self.numberOfPhotos = self.assetsGroup.numberOfAssets;
-    
-    [self.assetsGroup setAssetsFilter:[ALAssetsFilter allVideos]];
-    self.numberOfVideos = self.assetsGroup.numberOfAssets;
-    
     // Set assets filter
     [self.assetsGroup setAssetsFilter:ALAssetsFilterFromQBImagePickerControllerFilterType(self.filterType)];
     
     // Load assets
-    self.assets = [NSMutableArray array];
+    NSMutableArray *assets = [NSMutableArray array];
+    __block NSUInteger numberOfAssets = 0;
+    __block NSUInteger numberOfPhotos = 0;
+    __block NSUInteger numberOfVideos = 0;
     
-    __weak typeof(self) weakSelf = self;
     [self.assetsGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
         if (result) {
-            [weakSelf.assets addObject:result];
+            numberOfAssets++;
+            
+            NSString *type = [result valueForProperty:ALAssetPropertyType];
+            if ([type isEqualToString:ALAssetTypePhoto]) numberOfPhotos++;
+            else if ([type isEqualToString:ALAssetTypeVideo]) numberOfVideos++;
+            
+            [assets addObject:result];
         }
     }];
+    
+    self.assets = assets;
+    self.numberOfAssets = numberOfAssets;
+    self.numberOfPhotos = numberOfPhotos;
+    self.numberOfVideos = numberOfVideos;
     
     // Update view
     [self.collectionView reloadData];
@@ -189,7 +200,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.assetsGroup.numberOfAssets;
+    return self.numberOfAssets;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -200,7 +211,121 @@
     ALAsset *asset = [self.assets objectAtIndex:indexPath.row];
     cell.asset = asset;
     
+    UILongPressGestureRecognizer *lpg = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPreviewView:)];
+    
+    
+    [cell addGestureRecognizer:lpg];
+    
     return cell;
+}
+
+
+- (void)imageHeaderTouched:(id)sender
+{
+    UITapGestureRecognizer *tgr = sender;
+    UIImageView *imageViewAttached = (UIImageView *)tgr.view;
+    
+    if ([imageViewAttached.image isEqual:[UIImage imageNamed:@"doctor_header_default_60_60"]])
+        return;
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:imageViewAttached.image];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.userInteractionEnabled = YES;
+    imageView.clipsToBounds = YES;
+    imageView.layer.borderWidth = 0;
+    imageView.frame = [[imageViewAttached superview] convertRect:imageViewAttached.frame toView:self.view];
+    
+    UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [FSToolBox getApplicationFrameSize].width, [FSToolBox getApplicationFrameSize].height)];
+    backGroundView.backgroundColor = [UIColor blackColor];
+    backGroundView.alpha = 0;
+    backGroundView.tag = TAG_BIGPHOTO_BLACK_BG;
+    
+    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigImageTouched:)];
+    [imageView addGestureRecognizer:singleTapGestureRecognizer];
+    
+    [self.view addSubview:backGroundView];
+    [self.view addSubview:imageView];
+    imageViewAttached.hidden = YES;
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+     {
+         imageView.frame = CGRectMake(0, 0, [FSToolBox getApplicationFrameSize].width, [FSToolBox getApplicationFrameSize].height);
+         imageView.layer.cornerRadius = 0;
+         backGroundView.alpha = 1;
+         
+     } completion:^(BOOL finished)
+     {
+         [self.navigationController setNavigationBarHidden:YES animated:YES];
+     }];
+}
+
+- (void)bigImageTouched:(UITapGestureRecognizer *)sender
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    UIImageView *imageView = (UIImageView*)sender.view;
+    imageView.layer.cornerRadius = self.longPressedCell.frame.size.width/2;
+    UIView *backgroundView = [self.view viewWithTag:TAG_BIGPHOTO_BLACK_BG];
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+     {
+         imageView.frame = [[self.longPressedCell superview] convertRect:self.longPressedCell.frame toView:self.view];
+         backgroundView.alpha = 0;
+         
+     } completion:^(BOOL finished)
+     {
+         self.longPressedCell.hidden = NO;
+         [imageView removeFromSuperview];
+         [backgroundView removeFromSuperview];
+     }];
+}
+
+
+- (void)gotoPreviewView:(UILongPressGestureRecognizer *)sender
+{
+    
+    
+    
+    
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        
+        QBAssetsCollectionViewCell *cell = (QBAssetsCollectionViewCell *)sender.view;
+        self.longPressedCell = cell;
+        ALAsset *asset = cell.asset;
+        ALAssetRepresentation *rep = [asset defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        UIImage *image = [UIImage imageWithCGImage:iref scale:[rep scale] orientation:UIImageOrientationUp];
+        
+        
+        
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.userInteractionEnabled = YES;
+        imageView.clipsToBounds = YES;
+        imageView.layer.borderWidth = 0;
+        imageView.frame = [[cell superview] convertRect:cell.frame toView:self.view];
+        
+        UIView *backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [FSToolBox getApplicationFrameSize].width, [FSToolBox getApplicationFrameSize].height)];
+        backGroundView.backgroundColor = [UIColor blackColor];
+        backGroundView.alpha = 0;
+        backGroundView.tag = TAG_BIGPHOTO_BLACK_BG;
+        
+        UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigImageTouched:)];
+        [imageView addGestureRecognizer:singleTapGestureRecognizer];
+        
+        [self.view addSubview:backGroundView];
+        [self.view addSubview:imageView];
+        
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+         {
+             imageView.frame = CGRectMake(0, 0, [FSToolBox getApplicationFrameSize].width, [FSToolBox getApplicationFrameSize].height);
+             imageView.layer.cornerRadius = 0;
+             backGroundView.alpha = 1;
+             
+         } completion:^(BOOL finished)
+         {
+             [self.navigationController setNavigationBarHidden:YES animated:YES];
+         }];
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
