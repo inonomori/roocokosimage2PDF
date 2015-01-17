@@ -95,7 +95,11 @@ void MyCreatePDFFile (NSArray* mediaInfoArray,
         {
             imageScale = pageRect.size.height/chosenImage.size.height;
         }
-        UIGraphicsBeginImageContext(CGSizeMake(chosenImage.size.width * imageScale, chosenImage.size.height * imageScale));
+        
+        CGSize pageSize = CGSizeMake(chosenImage.size.width * imageScale, chosenImage.size.height * imageScale);
+        
+        UIGraphicsBeginImageContextWithOptions(pageSize, YES, [rep scale]);
+       // UIGraphicsBeginImageContext(CGSizeMake(chosenImage.size.width * imageScale, chosenImage.size.height * imageScale));
         [chosenImage drawInRect:CGRectMake(0, 0, chosenImage.size.width * imageScale, chosenImage.size.height * imageScale)];
         UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();

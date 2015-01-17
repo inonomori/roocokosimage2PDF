@@ -20,7 +20,6 @@
 		27CD18FD16E73621006B6DCF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD18FB16E73610006B6DCF /* QuartzCore.framework */; };
 		68122398177D78EC00DFA022 /* FSUIViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 68122397177D78EC00DFA022 /* FSUIViewAnimation.m */; };
 		6812239B177D792100DFA022 /* FSToolBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812239A177D792100DFA022 /* FSToolBox.m */; };
-		6812239E177D799C00DFA022 /* UIButton+FSUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812239D177D799C00DFA022 /* UIButton+FSUIButton.m */; };
 		6815F3F816F49B9700F3C242 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6815F3F616F49B9700F3C242 /* Localizable.strings */; };
 		6815F3FB16F49C7600F3C242 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6815F3F916F49C7600F3C242 /* Localizable.strings */; };
 		6876962F16F489B100E5DB62 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6876962E16F489B100E5DB62 /* MessageUI.framework */; };
@@ -49,6 +48,7 @@
 		68FF9CFD177D90130081A6E0 /* UIViewController+FSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF9CFC177D90130081A6E0 /* UIViewController+FSViewController.m */; };
 		68FF9D00177DA1400081A6E0 /* FSPagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF9CFF177DA1400081A6E0 /* FSPagingScrollView.m */; };
 		68FF9D03177DB39A0081A6E0 /* pageSize.json in Resources */ = {isa = PBXBuildFile; fileRef = 68FF9D02177DB39A0081A6E0 /* pageSize.json */; };
+		86C7B39A777E4B58BA1E920D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F38A7BBF6F49A6B9D6D36A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,16 +72,12 @@
 		68122397177D78EC00DFA022 /* FSUIViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSUIViewAnimation.m; path = ../FSUIViewAnimation.m; sourceTree = "<group>"; };
 		68122399177D792100DFA022 /* FSToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSToolBox.h; path = ../FSToolBox.h; sourceTree = "<group>"; };
 		6812239A177D792100DFA022 /* FSToolBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSToolBox.m; path = ../FSToolBox.m; sourceTree = "<group>"; };
-		6812239C177D799C00DFA022 /* UIButton+FSUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+FSUIButton.h"; path = "../UIButton+FSUIButton.h"; sourceTree = "<group>"; };
-		6812239D177D799C00DFA022 /* UIButton+FSUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+FSUIButton.m"; path = "../UIButton+FSUIButton.m"; sourceTree = "<group>"; };
 		6815F3F716F49B9700F3C242 /* zh-Hans */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		6815F3FA16F49C7600F3C242 /* zh-Hant-TW */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6815F41016F4A5F400F3C242 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6876962E16F489B100E5DB62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6876A0EF18BF5E5F00485B9D /* BackgroundCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundCoverView.h; path = ../BackgroundCoverView.h; sourceTree = "<group>"; };
 		6876A0F018BF5E5F00485B9D /* BackgroundCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundCoverView.m; path = ../BackgroundCoverView.m; sourceTree = "<group>"; };
-		6876A0F218BF7F6200485B9D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
-		6876A0F318BF7F6500485B9D /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		688A1A6718BF4A3700EFD1D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		68B76F9F16F49AA000AF0B8B /* en */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		68CDE0E117784AFF008573A0 /* FSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSNavigationController.h; path = ../FSNavigationController.h; sourceTree = "<group>"; };
@@ -132,6 +128,8 @@
 		68FF9D02177DB39A0081A6E0 /* pageSize.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pageSize.json; sourceTree = "<group>"; };
 		68FF9D24177E83B30081A6E0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		68FF9D25177E83B50081A6E0 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D3F38A7BBF6F49A6B9D6D36A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD1E13A0F2D4841A8427F5F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +143,7 @@
 				27CD18B716E72A29006B6DCF /* UIKit.framework in Frameworks */,
 				27CD18B916E72A29006B6DCF /* Foundation.framework in Frameworks */,
 				27CD18BB16E72A29006B6DCF /* CoreGraphics.framework in Frameworks */,
+				86C7B39A777E4B58BA1E920D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +157,7 @@
 				6876963416F495ED00E5DB62 /* Resources */,
 				27CD18B516E72A29006B6DCF /* Frameworks */,
 				27CD18B416E72A29006B6DCF /* Products */,
+				EFD1E13A0F2D4841A8427F5F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +178,7 @@
 				27CD18B616E72A29006B6DCF /* UIKit.framework */,
 				27CD18B816E72A29006B6DCF /* Foundation.framework */,
 				27CD18BA16E72A29006B6DCF /* CoreGraphics.framework */,
+				D3F38A7BBF6F49A6B9D6D36A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,8 +225,6 @@
 				68122397177D78EC00DFA022 /* FSUIViewAnimation.m */,
 				68122399177D792100DFA022 /* FSToolBox.h */,
 				6812239A177D792100DFA022 /* FSToolBox.m */,
-				6812239C177D799C00DFA022 /* UIButton+FSUIButton.h */,
-				6812239D177D799C00DFA022 /* UIButton+FSUIButton.m */,
 				68FF9CFB177D90130081A6E0 /* UIViewController+FSViewController.h */,
 				68FF9CFC177D90130081A6E0 /* UIViewController+FSViewController.m */,
 				27CD18D116E72A29006B6DCF /* ViewController.h */,
@@ -344,9 +343,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27CD18D616E72A29006B6DCF /* Build configuration list for PBXNativeTarget "Rococo's Image2PDF" */;
 			buildPhases = (
+				A29C75C6BF8D4C4A9BF43449 /* Check Pods Manifest.lock */,
 				27CD18AF16E72A29006B6DCF /* Sources */,
 				27CD18B016E72A29006B6DCF /* Frameworks */,
 				27CD18B116E72A29006B6DCF /* Resources */,
+				461FD14F41D84D459EC78380 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,6 +411,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		461FD14F41D84D459EC78380 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A29C75C6BF8D4C4A9BF43449 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27CD18AF16E72A29006B6DCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -429,7 +463,6 @@
 				68122398177D78EC00DFA022 /* FSUIViewAnimation.m in Sources */,
 				6812239B177D792100DFA022 /* FSToolBox.m in Sources */,
 				68D8B03119E3CF1500C3B0B2 /* QBAssetsCollectionFooterView.m in Sources */,
-				6812239E177D799C00DFA022 /* UIButton+FSUIButton.m in Sources */,
 				68FF9CFD177D90130081A6E0 /* UIViewController+FSViewController.m in Sources */,
 				68D8B03719E3CF1500C3B0B2 /* QBImagePickerGroupCell.m in Sources */,
 				68D8B03219E3CF1500C3B0B2 /* QBAssetsCollectionOverlayView.m in Sources */,
@@ -463,8 +496,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				6815F41016F4A5F400F3C242 /* en */,
-				6876A0F218BF7F6200485B9D /* zh-Hans */,
-				6876A0F318BF7F6500485B9D /* zh-Hant-TW */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -563,6 +594,7 @@
 		};
 		27CD18D716E72A29006B6DCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD1E13A0F2D4841A8427F5F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -573,6 +605,7 @@
 				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_NAME = RoocokosImage2PDFConverter;
 				SWIFT_OBJC_BRIDGING_HEADER = "Rococo's Image2PDF/Classes/Rococo's Image2PDF-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -582,6 +615,7 @@
 		};
 		27CD18D816E72A29006B6DCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD1E13A0F2D4841A8427F5F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -593,6 +627,7 @@
 				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_NAME = RoocokosImage2PDFConverter;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

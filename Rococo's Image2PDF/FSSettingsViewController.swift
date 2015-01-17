@@ -1,4 +1,4 @@
-//
+ //
 //  FSSettingsViewController.swift
 //  Rococo's Image2PDF
 //
@@ -27,7 +27,8 @@ class FSSettingsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        let jsonData: NSData = NSData.dataWithContentsOfFile(NSBundle.mainBundle().pathForResource("pageSize", ofType: "json")!, options: nil, error: nil)
+        let jsonData: NSData = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("pageSize", ofType: "json")!, options: nil, error: nil)!
+        
         self.allPageDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers, error: nil) as? [String:[String:AnyObject]]
     }
     
@@ -47,7 +48,7 @@ class FSSettingsViewController: UIViewController, UIScrollViewDelegate {
             }
             self.scrollView.addSubview(subview)
             self.scrollView.contentSize = CGSize(width: CGFloat(200 * self.pageArray.count), height: self.scrollView.frame.size.height)
-            self.scrollView.responseInsets = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 60)
+            self.scrollView.responseInsets = UIEdgeInsets(top: 0, left: CGRectGetMidX(self.view.bounds) - CGRectGetMidX(self.scrollView.bounds), bottom: 0, right: CGRectGetMidX(self.view.bounds) - CGRectGetMidX(self.scrollView.bounds))
             
             if let pageSizeDict = NSUserDefaults.standardUserDefaults().objectForKey("pageSize") as? Dictionary<String, AnyObject>{
                 if let name = pageSizeDict["name"] as AnyObject? as? String{
@@ -70,7 +71,6 @@ class FSSettingsViewController: UIViewController, UIScrollViewDelegate {
                 navCV.popViewControllerWithSlideAnimation()
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {

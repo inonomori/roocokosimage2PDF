@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "UIButton+FSUIButton.h"
 #import "FSPdfPreviewViewController.h"
 #import "FSimageOrderChangingViewController.h"
 #import "BackgroundCoverView.h"
+#import <POP.h>
 
 @interface ViewController ()
 
@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *dialogView;
 @property (weak, nonatomic) IBOutlet UILabel *fileSizeLabel;
 @property (nonatomic, strong) QBImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintDialogViewTop;
 
 @end
 
@@ -55,8 +56,21 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (self.picSelectionButton.frame.size.width == 1)
-        [FSUIViewAnimation viewAnimationBubblePop:self.picSelectionButton toFrame:CGRectMake([FSToolBox getApplicationFrameSize].width/2-100, [FSToolBox getApplicationFrameSize].height/2-100, 200, 200) delayed:0.3 completion:nil];
+    
+    POPSpringAnimation *anim = [self.picSelectionButton pop_animationForKey:@"duang"];
+    
+    if (anim){
+        anim.springBounciness = 20;    // value between 0-20 default at 4
+        anim.springSpeed = 2;     // value between 0-20 default at 4
+        anim.toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+    } else{
+        anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+        anim.springBounciness = 20;    // value between 0-20 default at 4
+        anim.springSpeed = 2;     // value between 0-20 default at 4
+        anim.toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+    }
+    
+    [self.picSelectionButton pop_addAnimation:anim forKey:@"duang"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,52 +80,52 @@
 }
 - (IBAction)selectPics:(UIButton *)sender
 {
-    __weak __block ViewController *weakSelf = self;
-    [UIView animateWithDuration:0.05
-                     animations:^{
-                         sender.frame = sender.originalFrame;
-                     }
-                     completion:^(BOOL finished){
-                         if (finished)
-                             [sender touched:^{
-                                 
-                                  self.imagePickerController = [[QBImagePickerController alloc] init];
-                                 self.imagePickerController.delegate = weakSelf;
-                                 self.imagePickerController.allowsMultipleSelection = YES;
-                                 self.imagePickerController.groupTypes = @[@(ALAssetsGroupSavedPhotos),
-                                                                      @(ALAssetsGroupPhotoStream),
-                                                                      @(ALAssetsGroupAlbum)];
-                                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.imagePickerController];
-                                 [weakSelf presentViewController:navigationController animated:YES completion:NULL];
-                             }];
-                     }];
+    POPSpringAnimation *anim = [sender pop_animationForKey:@"duang"];
+
+    NSValue *toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+    if (anim) {
+        anim.springBounciness = 20;    // value between 0-20 default at 4
+        anim.springSpeed = 20;     // value between 0-20 default at 4
+        anim.toValue = toValue;
+        anim.delegate = self;
+    } else {
+        anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+        anim.delegate = self;
+        anim.springBounciness = 20;    // value between 0-20 default at 4
+        anim.springSpeed = 20;     // value between 0-20 default at 4
+        anim.toValue = toValue;
+        [self.picSelectionButton pop_addAnimation:anim forKey:@"duang"];
+    }
 }
 
 - (IBAction)bubbleButtonTouchDown:(UIButton *)sender
 {
-    sender.originalFrame = sender.frame;
-    [UIView animateWithDuration:0.1
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
-                     animations:^
-     {
-         CGRect frame = sender.frame;
-         CGFloat increasedWidth = frame.size.width*0.3;
-         CGFloat increasedHeight = frame.size.height*0.3;
-         frame.origin.x -= increasedWidth;
-         frame.origin.y -= increasedHeight;
-         frame.size.width += increasedWidth*2;
-         frame.size.height += increasedHeight*2;
-         sender.frame = frame;
-     }
-                     completion:nil];
+    POPSpringAnimation *anim = [sender pop_animationForKey:@"duang"];
+    NSValue *toValue = [NSValue valueWithCGSize:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.view.bounds))];
+    if (anim) {
+        anim.toValue = toValue;
+    } else {
+        anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+        anim.springBounciness = 20;    // value between 0-20 default at 4
+        anim.springSpeed = 2;     // value between 0-20 default at 4
+        anim.toValue = toValue;
+        [self.picSelectionButton pop_addAnimation:anim forKey:@"duang"];
+    }
 }
 
 - (IBAction)bubbleButtonTouchCancel:(UIButton *)sender
 {
-    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        sender.frame = sender.originalFrame;
-    } completion:nil];
+    POPSpringAnimation *anim = [sender pop_animationForKey:@"duang"];
+    NSValue *toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+    if (anim) {
+        anim.toValue = toValue;
+    } else {
+        anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+        anim.springBounciness = 20;    // value between 0-20 default at 4
+        anim.springSpeed = 2;     // value between 0-20 default at 4
+        anim.toValue = toValue;
+        [self.picSelectionButton pop_addAnimation:anim forKey:@"duang"];
+    }
 }
 
 #pragma mark - Segue
@@ -139,16 +153,6 @@
         [self reorderingImages];
     }];
 }
-
-//- (void)imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info
-//{
-//    self.mediaInfoArray = (NSArray *)info;
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        [self reorderingImages];
-//    }];
-//    
-//    
-//}
 
 - (void)reorderingImages
 {
@@ -195,12 +199,18 @@
     self.fileSizeLabel.text = [NSString stringWithFormat:@"File Size: %.1f %@",formatedFileSize,fileSizeUnit];
     
     [self.view insertSubview:self.coverView belowSubview:self.dialogView];
-    [FSUIViewAnimation AnimatedCenteringView:self.dialogView
-                                    Duration:0.65
-                            AddtionAnimation:^{
-                                self.coverView.alpha = 0.8;
-                            }
-                                  Completion:nil];
+    
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayoutConstraintConstant];
+    anim.springBounciness = 10;    // value between 0-20 default at 4
+    anim.springSpeed = 7;     // value between 0-20 default at 4
+    anim.toValue = @(-(CGRectGetMidY(self.view.bounds) + CGRectGetMidY(self.dialogView.bounds)));
+    [self.constraintDialogViewTop pop_addAnimation:anim forKey:@"duang"];
+    
+    POPBasicAnimation *basicAnimation = [POPBasicAnimation animation];
+    basicAnimation.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
+    basicAnimation.toValue= @(0.8); // scale from 0 to 1
+    basicAnimation.duration = 0.3f;
+    [self.coverView pop_addAnimation:basicAnimation forKey:@"backgroundAlpha"];
 }
 
 - (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
@@ -240,55 +250,32 @@
 
 
 #pragma mark actionSheetDelegate
-//-(void)actionSheet:(UIActionSheet *)actionSheet
-//didDismissWithButtonIndex:(NSInteger)buttonIndex
-//{
-//    if (buttonIndex == 0) //yes button
-//    {
-//        if ([MFMailComposeViewController canSendMail])
-//        {
-//            MFMailComposeViewController* mcvc = [[MFMailComposeViewController alloc] init];
-//            mcvc.mailComposeDelegate = self;
-//            
-//            [mcvc setSubject:NSLocalizedString(@"mailComponentViewSubject", nil)];
-//            
-//            //add attachment
-//            [mcvc addAttachmentData:[NSData dataWithContentsOfFile:[WQPDFManager pdfDestPathTmp:self.fileName]] mimeType:@"application/pdf" fileName:@"attachment.pdf"];
-//            
-//            //正文
-//            NSString *emailBody = NSLocalizedString(@"productName",nil);
-//            [mcvc setMessageBody:emailBody isHTML:YES];
-//            
-//            mcvc.modalPresentationStyle = UIModalPresentationFormSheet;
-//            [self presentViewController:mcvc animated:YES completion:nil];
-//        }
-//        else
-//        {
-//            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil
-//                                                           message:NSLocalizedString(@"cannotUseEmail",nil)
-//                                                          delegate:self
-//                                                 cancelButtonTitle:@"OK"
-//                                                 otherButtonTitles:nil];
-//            [alert show];
-//        }
-//    }
-//    else
-//    {
-//    }
-//}
-
 - (IBAction)sendEmailCancelButtonTouched:(UIButton *)sender
 {
-    //TODO:in next version, save pdf to document folder
     [UIView animateWithDuration:0.25
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.dialogView.frame = CGRectMake(self.dialogView.frame.origin.x, [FSToolBox getApplicationFrameSize].height, self.dialogView.frame.size.width, self.dialogView.frame.size.height);
+                         self.constraintDialogViewTop.constant = 0;
+                         [self.view layoutIfNeeded];
                          self.coverView.alpha = 0;
                      }
                      completion:^(BOOL finished){
                          [self.coverView removeFromSuperview];
+                         POPSpringAnimation *anim = [self.picSelectionButton pop_animationForKey:@"duang"];
+                         
+                         if (anim){
+                             anim.springBounciness = 20;    // value between 0-20 default at 4
+                             anim.springSpeed = 2;     // value between 0-20 default at 4
+                             anim.toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+                         } else{
+                             anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+                             anim.springBounciness = 20;    // value between 0-20 default at 4
+                             anim.springSpeed = 2;     // value between 0-20 default at 4
+                             anim.toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+                         }
+                         
+                         [self.picSelectionButton pop_addAnimation:anim forKey:@"duang"];
                      }
      ];
 }
@@ -299,12 +286,28 @@
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.dialogView.frame = CGRectMake(self.dialogView.frame.origin.x, [FSToolBox getApplicationFrameSize].height, self.dialogView.frame.size.width, self.dialogView.frame.size.height);
+                         self.constraintDialogViewTop.constant = 0;
+                         [self.view layoutIfNeeded];
                          self.coverView.alpha = 0;
                      }
                      completion:^(BOOL finished){
                          [self.coverView removeFromSuperview];
                          [self sendFileViaEmail];
+                         
+                         POPSpringAnimation *anim = [self.picSelectionButton pop_animationForKey:@"duang"];
+                         
+                         if (anim){
+                             anim.springBounciness = 20;    // value between 0-20 default at 4
+                             anim.springSpeed = 2;     // value between 0-20 default at 4
+                             anim.toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+                         } else{
+                             anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+                             anim.springBounciness = 20;    // value between 0-20 default at 4
+                             anim.springSpeed = 2;     // value between 0-20 default at 4
+                             anim.toValue = [NSValue valueWithCGSize:CGSizeMake(200, 200)];
+                         }
+                         
+                         [self.picSelectionButton pop_addAnimation:anim forKey:@"duang"];
                      }
      ];
 }
@@ -336,4 +339,20 @@
     [fileManager removeItemAtPath:[WQPDFManager pdfDestPathTmp:self.fileName] error:NULL];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - POPDelegate
+- (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished{
+    anim.delegate = nil;
+    if (finished){
+        self.imagePickerController = [[QBImagePickerController alloc] init];
+        self.imagePickerController.delegate = self;
+        self.imagePickerController.allowsMultipleSelection = YES;
+        self.imagePickerController.groupTypes = @[@(ALAssetsGroupSavedPhotos),
+                                                  @(ALAssetsGroupPhotoStream),
+                                                  @(ALAssetsGroupAlbum)];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.imagePickerController];
+        [self presentViewController:navigationController animated:YES completion:nil];
+    }
+}
+
 @end

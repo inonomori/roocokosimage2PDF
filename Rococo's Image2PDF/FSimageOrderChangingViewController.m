@@ -92,10 +92,6 @@
 - (IBAction)backButtonTouched:(UIButton *)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    /*[self.delegate dismissViewControllerAnimated:YES completion:^{
-        [self.delegate makePDF];
-    }];*/
 }
 
 - (IBAction)confirmButtonTouched:(UIButton *)sender
