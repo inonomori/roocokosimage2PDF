@@ -605,7 +605,11 @@
 				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lc++";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = RoocokosImage2PDFConverter;
 				SWIFT_OBJC_BRIDGING_HEADER = "Rococo's Image2PDF/Classes/Rococo's Image2PDF-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -627,7 +631,11 @@
 				INFOPLIST_FILE = "Rococo's Image2PDF/Rococo's Image2PDF-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lc++";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = RoocokosImage2PDFConverter;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
