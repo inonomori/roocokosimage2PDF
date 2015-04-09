@@ -15,8 +15,8 @@ class FSSettingsViewController: UIViewController, UIScrollViewDelegate {
     var pageIndex: Int = 0 {
         didSet{
             if let pageSizeDic:[String:AnyObject] = self.allPageDictionary?["PAGESIZE_\(self.pageArray[pageIndex])"]{
-                let width = pageSizeDic["width_inch"]! as Float
-                let height = pageSizeDic["height_inch"]! as Float
+                let width = pageSizeDic["width_inch"]! as! Float
+                let height = pageSizeDic["height_inch"]! as! Float
                 self.descriptionLabel.text = String(format: "%.2fx%.2f inch", width, height)
             }
         }
